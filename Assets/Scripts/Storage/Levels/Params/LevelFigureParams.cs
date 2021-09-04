@@ -1,15 +1,13 @@
 ﻿using System;
 using Figures;
-using Figures.Animals;
 using UnityEngine;
 
-namespace Level.Params
+namespace Storage.Levels.Params
 {
     [Serializable]
     public class LevelFigureParams
     {
-        public FigureAnimalTarget FigureAnimal;
-        public FigureAnimalsMenu FigureMenu;
+        public FigureType FigureType;
         public float Scale;
         public Color Color;
         public Vector3 Position;

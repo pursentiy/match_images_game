@@ -4,7 +4,7 @@ namespace Figures.Animals
 {
     public interface IFigureAnimalTarget
     {
-        void SetUpFigure(float scale, Color color, Vector3 position);
+        void SetUpFigure(float scale, Vector3 position);
         void SetConnected();
     }
 }

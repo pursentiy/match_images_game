@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Figures.Animals;
-using Level.Params;
+using Storage.Levels.Params;
 
-namespace Level
+namespace Level.Game
 {
     public interface ILevelVisualHandler
     {

@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449397316b884707b25b1929805b4430, type: 3}
+  m_Name: FiguresStorage
+  m_EditorClassIdentifier: 
+  _figuresByTypeList:
+  - FigureType: 0
+    FiguresByType:
+      FigureAnimal: {fileID: 1721019301214671524, guid: 212ea3d2bc6e0c64985239d111ed7330,
+        type: 3}
+      FigureMenu: {fileID: 1823245827462920324, guid: 69e537f527db7464399bfb9dc1b79739,
+        type: 3}
+  - FigureType: 1
+    FiguresByType:
+      FigureAnimal: {fileID: 5316186555092263013, guid: 2e27cbe04bc207f41aa2f50be0406e18,
+        type: 3}
+      FigureMenu: {fileID: 3473678768214474318, guid: 753a7aae094328343a03deedd136d3e2,
+        type: 3}
+  - FigureType: 7
+    FiguresByType:
+      FigureAnimal: {fileID: 2331272524387957367, guid: 1b302687b4d3d5b47b4542164f5bc1ae,
+        type: 3}
+      FigureMenu: {fileID: 7935757551546364375, guid: 69a1e7d86740e0243baaba4e6a674b39,
+        type: 3}
+  - FigureType: 2
+    FiguresByType:
+      FigureAnimal: {fileID: 214972813985199628, guid: 8b6d006b895367f41a2509153ccce199,
+        type: 3}
+      FigureMenu: {fileID: 2242383791782018279, guid: a9ed35de08a9a4e4191ff1bfe624853d,
+        type: 3}
+  - FigureType: 3
+    FiguresByType:
+      FigureAnimal: {fileID: 444760702449039626, guid: 019954596ad6f2c499e40fd106d7b102,
+        type: 3}
+      FigureMenu: {fileID: 2772271124047877032, guid: a795106e141ee4d4ebb3d8e8b3f00677,
+        type: 3}
+  - FigureType: 4
+    FiguresByType:
+      FigureAnimal: {fileID: 5294868492338078236, guid: 5598edded3f85654a9b9e6b10595a6be,
+        type: 3}
+      FigureMenu: {fileID: 5268963805343332882, guid: d06e345ca781305499b65921449b128a,
+        type: 3}
+  - FigureType: 5
+    FiguresByType:
+      FigureAnimal: {fileID: 8738496996711593685, guid: 0ef68b23c379238408fbdf1469209bb0,
+        type: 3}
+      FigureMenu: {fileID: 1059348149675717642, guid: f69190fea5500684b91c6bade02749b0,
+        type: 3}
+  - FigureType: 6
+    FiguresByType:
+      FigureAnimal: {fileID: 2553703408624103123, guid: 0a76c3b886de74e4d94a69ae97459b88,
+        type: 3}
+      FigureMenu: {fileID: 8921432214664589762, guid: 60414caf710427e439fdeea64e590b29,
+        type: 3}

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Figures;
-using UnityEngine;
+using Level.Game;
 
-namespace Level.Params
+namespace Storage.Levels.Params
 {
     [Serializable]
     public class LevelParams

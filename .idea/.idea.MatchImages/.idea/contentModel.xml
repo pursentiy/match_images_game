@@ -931,6 +931,7 @@
             <e p="Animals" t="Include">
               <e p="FigureAnimalsMenu.cs" t="Include" />
               <e p="FigureAnimalTarget.cs" t="Include" />
+              <e p="IFigureAnimalsMenu.cs" t="Include" />
               <e p="IFigureAnimalTarget.cs" t="Include" />
             </e>
             <e p="Figure.cs" t="Include" />
@@ -943,7 +944,9 @@
             <e p="MainInstaller.cs" t="Include" />
           </e>
           <e p="Level" t="Include">
+            <e p="ILevelHUDHandler.cs" t="Include" />
             <e p="ILevelVisualHandler.cs" t="Include" />
+            <e p="LevelHUDHandler.cs" t="Include" />
             <e p="LevelVisualHandler.cs" t="Include" />
             <e p="Params" t="Include">
               <e p="LevelFigureParams.cs" t="Include" />
@@ -954,6 +957,12 @@
             </e>
           </e>
           <e p="StartGame.cs" t="Include" />
+          <e p="Storage" t="Include">
+            <e p="FigureByTypes" t="Include">
+              <e p="FigureByTypeParams.cs" t="Include" />
+            </e>
+            <e p="FiguresStorage.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="MatchImages.sln" t="IncludeFlat" />
