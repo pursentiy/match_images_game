@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 namespace Figures.Animals
 {
@@ -6,10 +7,10 @@ namespace Figures.Animals
     {
         [SerializeField] protected SpriteRenderer _spriteRenderer;
         [SerializeField] protected Transform _transform;
-        [SerializeField] private PolygonCollider2D _collider;
         
-        public void SetUpFigure(float scale, Vector3 position)
+        public void SetUpFigure(Color color, float scale, Vector3 position)
         {
+            _spriteRenderer.color = color;
             _transform.localScale = new Vector3(scale, scale, 0);
             _transform.position = position;
         }
@@ -22,13 +23,13 @@ namespace Figures.Animals
                 return;
             }
 
-            _spriteRenderer.color = FigureColor;
+            _spriteRenderer.DOColor(FigureColor, 0.3f);
         }
         
         public void SetConnected()
         {
             SetFigureColor();
-            SetConnected();
+            SetFigureCompleted(true);
         }
     }
 }

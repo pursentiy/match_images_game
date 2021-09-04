@@ -4,6 +4,7 @@ using Installers;
 using Storage;
 using Storage.Levels.Params;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace Level.Hud
@@ -13,6 +14,7 @@ namespace Level.Hud
         [Inject] private FiguresStorage _figuresStorage;
         
         [SerializeField] private RectTransform _figuresParentTransform;
+        [SerializeField] private ScrollRect _scrollRect;
         
         private List<FigureAnimalsMenu> _figureAnimalsMenuList;
 
@@ -37,8 +39,8 @@ namespace Level.Hud
             }
             
             var figure = Instantiate(figurePrefab.FigureMenu, _figuresParentTransform);
-            figure.SetUpFigure(figureParams.Color);
-            figure.SetUpDefaultParamsFigure(figureParams.Color, false);
+            figure.SetUpDefaultParamsFigure(figureParams.Color, figureParams.FigureType);
+            figure.SetUpFigure(figure.FigureColor);
             _figureAnimalsMenuList.Add(figure);
         }
 
@@ -52,6 +54,11 @@ namespace Level.Hud
                     //figure.SetConnected();
                 }
             });
+        }
+
+        public void LockScroll(bool value)
+        {
+            _scrollRect.horizontal = !value;
         }
     }
 }

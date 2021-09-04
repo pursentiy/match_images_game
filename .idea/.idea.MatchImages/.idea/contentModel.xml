@@ -8,6 +8,21 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Plugins" t="Include">
+          <e p="Demigiant" t="Include">
+            <e p="DOTween" t="Include">
+              <e p="Modules" t="Include">
+                <e p="DOTweenModuleAudio.cs" t="Include" />
+                <e p="DOTweenModuleEPOOutline.cs" t="Include" />
+                <e p="DOTweenModulePhysics.cs" t="Include" />
+                <e p="DOTweenModulePhysics2D.cs" t="Include" />
+                <e p="DOTweenModuleSprite.cs" t="Include" />
+                <e p="DOTweenModuleUI.cs" t="Include" />
+                <e p="DOTweenModuleUnityVersion.cs" t="Include" />
+                <e p="DOTweenModuleUtils.cs" t="Include" />
+              </e>
+              <e p="ReadMe.txt" t="Include" />
+            </e>
+          </e>
           <e p="FSignal" t="Include">
             <e p="BaseSignal.cs" t="Include" />
             <e p="FSignal.cs" t="Include" />
@@ -944,24 +959,32 @@
             <e p="MainInstaller.cs" t="Include" />
           </e>
           <e p="Level" t="Include">
-            <e p="ILevelHUDHandler.cs" t="Include" />
-            <e p="ILevelVisualHandler.cs" t="Include" />
-            <e p="LevelHUDHandler.cs" t="Include" />
-            <e p="LevelVisualHandler.cs" t="Include" />
-            <e p="Params" t="Include">
-              <e p="LevelFigureParams.cs" t="Include" />
-              <e p="LevelParams.cs" t="Include" />
+            <e p="Click" t="Include">
+              <e p="ClickHandler.cs" t="Include" />
+              <e p="IClickHandler.cs" t="Include" />
             </e>
-            <e p="Services" t="Include">
-              <e p="LevelsParamsService.cs" t="Include" />
+            <e p="Game" t="Include">
+              <e p="ILevelVisualHandler.cs" t="Include" />
+              <e p="LevelVisualHandler.cs" t="Include" />
+            </e>
+            <e p="Hud" t="Include">
+              <e p="ILevelHUDHandler.cs" t="Include" />
+              <e p="LevelHUDHandler.cs" t="Include" />
             </e>
           </e>
-          <e p="StartGame.cs" t="Include" />
+          <e p="LevelSessionHandler.cs" t="Include" />
           <e p="Storage" t="Include">
             <e p="FigureByTypes" t="Include">
               <e p="FigureByTypeParams.cs" t="Include" />
             </e>
             <e p="FiguresStorage.cs" t="Include" />
+            <e p="Levels" t="Include">
+              <e p="Params" t="Include">
+                <e p="LevelFigureParams.cs" t="Include" />
+                <e p="LevelParams.cs" t="Include" />
+                <e p="LevelsParamsStorage.cs" t="Include" />
+              </e>
+            </e>
           </e>
         </e>
       </e>

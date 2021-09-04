@@ -339,3 +339,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _figuresParentTransform: {fileID: 4922581533096915531}
+  _scrollRect: {fileID: 4922581532116615206}

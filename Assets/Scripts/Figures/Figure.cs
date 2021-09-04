@@ -8,7 +8,7 @@ namespace Figures
     {
         [SerializeField] private FigureType _figureType;
         
-        public FigureType FigureType { get; }
+        public FigureType FigureType { get; private set; }
         public bool IsCompleted { get; private set; }
         public bool IsTarget { get; private set;}
         public int FigureScale { get; private set;}
@@ -19,10 +19,10 @@ namespace Figures
             IsCompleted = value;
         }
 
-        public void SetUpDefaultParamsFigure(Color figureColor, bool isTarget)
+        public void SetUpDefaultParamsFigure(Color figureColor, FigureType type)
         {
             FigureColor = figureColor;
-            IsTarget = isTarget;
+            FigureType = type;
         }
     }
 }

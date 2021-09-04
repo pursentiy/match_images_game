@@ -5,19 +5,19 @@ using UnityEngine;
 
 namespace Storage.Levels.Params
 {
-    [CreateAssetMenu(fileName = "LevelsService", menuName = "LevelsService/LevelsParams")]
+    [CreateAssetMenu(fileName = "LevelsParamsStorage", menuName = "ScriptableObjects/LevelsParams")]
     public class LevelsParamsStorage : ScriptableObject
     {
         [SerializeField] private List<LevelParams> _levelParamsList;
         [SerializeField] private LevelHudHandler _levelHudHandlerPrefab;
+        [SerializeField] private Color _targetFigureDefaultColor;
         public LevelParams GetLevelByNumber(int number)
         {
             return _levelParamsList.FirstOrDefault(levelParams => levelParams.LevelNumber == number);
         }
 
-        public LevelHudHandler GetLevelHudHandler()
-        {
-            return _levelHudHandlerPrefab;
-        }
+        public LevelHudHandler LevelHudHandler => _levelHudHandlerPrefab;
+
+        public Color TargetFigureDefaultColor => _targetFigureDefaultColor;
     }
 }

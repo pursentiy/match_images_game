@@ -8,5 +8,6 @@ namespace Level.Hud
     {
         void SetupScrollMenu(List<LevelFigureParams> levelFiguresParams);
         void ConnectFigures(FigureAnimalsMenu figureTarget);
+        void LockScroll(bool value);
     }
 }

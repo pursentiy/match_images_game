@@ -11,7 +11,7 @@ namespace Level.Game
     public class LevelVisualHandler : InjectableMonoBehaviour, ILevelVisualHandler
     {
         [Inject] private FiguresStorage _figuresStorage;
-        
+
         [SerializeField] private Transform _figuresParentTransform;
         
         private List<FigureAnimalTarget> _figureAnimalsList;
@@ -21,12 +21,12 @@ namespace Level.Game
             _figureAnimalsList = new List<FigureAnimalTarget>();
         }
 
-        public void SetupLevel(List<LevelFigureParams> levelFiguresParams)
+        public void SetupLevel(List<LevelFigureParams> levelFiguresParams, Color defaultColor)
         {
-            levelFiguresParams.ForEach(SetFigure);
+            levelFiguresParams.ForEach(figure => SetFigure(figure, defaultColor));
         }
 
-        private void SetFigure(LevelFigureParams figureParams)
+        private void SetFigure(LevelFigureParams figureParams, Color defaultColor)
         {
             var figurePrefab = _figuresStorage.GetFiguresByType(figureParams.FigureType);
 
@@ -37,8 +37,8 @@ namespace Level.Game
             }
             
             var figure = Instantiate(figurePrefab.FigureAnimal, _figuresParentTransform);
-            figure.SetUpFigure(figureParams.Scale, figureParams.Position);
-            figure.SetUpDefaultParamsFigure(figureParams.Color, true);
+            figure.SetUpFigure(defaultColor, figureParams.Scale, figureParams.Position);
+            figure.SetUpDefaultParamsFigure(figureParams.Color, figureParams.FigureType);
             _figureAnimalsList.Add(figure);
         }
 
