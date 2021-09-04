@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Level
 {
-    public class LevelVisualHandler : MonoBehaviour, ILevelManager
+    public class LevelVisualHandler : MonoBehaviour, ILevelVisualHandler
     {
         [SerializeField] private Transform _figuresParentTransform;
         private List<FigureAnimalTarget> _figureAnimalsList;

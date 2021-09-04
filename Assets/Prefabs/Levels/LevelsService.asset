@@ -12,41 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbf1f0a314248c792c663e1887ccc51, type: 3}
   m_Name: LevelsService
   m_EditorClassIdentifier: 
-  LevelParamsList:
-  - LevelNumber: 1
-    LevelVisualHandler: {fileID: 7712832656842174280, guid: 302aabbee082d1b4ea6391ba0a09f95b,
-      type: 3}
+  _levelParamsList:
+  - LevelNumber: 0
+    LevelVisualHandler: {fileID: 0}
     LevelFiguresParamsList:
-    - Figure: {fileID: 8738496996711593685, guid: 0ef68b23c379238408fbdf1469209bb0,
-        type: 3}
-      Scale: 3
-      Color: {r: 1, g: 0.76487076, b: 0.7122642, a: 1}
-      Position: {x: 3.81, y: 2.8, z: 0}
-    - Figure: {fileID: 214972813985199628, guid: 8b6d006b895367f41a2509153ccce199,
-        type: 3}
-      Scale: 4
-      Color: {r: 0.64260095, g: 0.3443396, b: 1, a: 1}
-      Position: {x: -0.11, y: -4.26, z: 0}
-    - Figure: {fileID: 5294868492338078236, guid: 5598edded3f85654a9b9e6b10595a6be,
-        type: 3}
-      Scale: 2.2
-      Color: {r: 0.8769978, g: 1, b: 0, a: 1}
-      Position: {x: 3.82, y: -6.56, z: 0}
-    - Figure: {fileID: 5316186555092263013, guid: 2e27cbe04bc207f41aa2f50be0406e18,
-        type: 3}
-      Scale: 3
-      Color: {r: 1, g: 0, b: 0.40356064, a: 1}
-      Position: {x: -1.33, y: 2.47, z: 0}
-    - Figure: {fileID: 444760702449039626, guid: 019954596ad6f2c499e40fd106d7b102,
-        type: 3}
-      Scale: 2.2
-      Color: {r: 1, g: 0.71008325, b: 0, a: 1}
-      Position: {x: -3.53, y: -2.47, z: 0}
-    - Figure: {fileID: 2331272524387957367, guid: 1b302687b4d3d5b47b4542164f5bc1ae,
-        type: 3}
-      Scale: 2
-      Color: {r: 1, g: 0.47457013, b: 0, a: 1}
-      Position: {x: -3.778, y: -6.779, z: 0}
+    - FigureAnimal: {fileID: 0}
+      FigureMenu: {fileID: 0}
+      Scale: 0
+      Color: {r: 0, g: 0, b: 0, a: 0}
+      Position: {x: 0, y: 0, z: 0}
+    - FigureAnimal: {fileID: 0}
+      FigureMenu: {fileID: 0}
+      Scale: 0
+      Color: {r: 0, g: 0, b: 0, a: 0}
+      Position: {x: 0, y: 0, z: 0}
+    - FigureAnimal: {fileID: 0}
+      FigureMenu: {fileID: 0}
+      Scale: 0
+      Color: {r: 0, g: 0, b: 0, a: 0}
+      Position: {x: 0, y: 0, z: 0}
+    - FigureAnimal: {fileID: 0}
+      FigureMenu: {fileID: 0}
+      Scale: 0
+      Color: {r: 0, g: 0, b: 0, a: 0}
+      Position: {x: 0, y: 0, z: 0}
+    - FigureAnimal: {fileID: 0}
+      FigureMenu: {fileID: 0}
+      Scale: 0
+      Color: {r: 0, g: 0, b: 0, a: 0}
+      Position: {x: 0, y: 0, z: 0}
+    - FigureAnimal: {fileID: 0}
+      FigureMenu: {fileID: 0}
+      Scale: 0
+      Color: {r: 0, g: 0, b: 0, a: 0}
+      Position: {x: 0, y: 0, z: 0}
   - LevelNumber: 0
     LevelVisualHandler: {fileID: 0}
     LevelFiguresParamsList: []
