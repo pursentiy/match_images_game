@@ -8,6 +8,7 @@
         Kangaroo,
         Lion,
         Monkey,
-        Rhino
+        Rhino,
+        Fox
     }
 }

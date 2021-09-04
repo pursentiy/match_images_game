@@ -11,18 +11,18 @@ namespace Figures
         [SerializeField] private Transform _transform;
         [SerializeField] private PolygonCollider2D _collider;
         public bool IsCompleted { get; private set; }
-        public bool IsTarget { get; }
-        public int FigureScale { get; }
-        public Color FigureColor { get; }
+        public bool IsTarget { get; private set;}
+        public int FigureScale { get; private set;}
+        public Color FigureColor { get; private set;}
         
-        public FigureType FigureType { get;  }
+        public FigureType FigureType { get; }
 
         public void SetFigureCompleted(bool value)
         {
             IsCompleted = value;
         }
 
-        public void SetFigureColor()
+        protected void SetFigureColor()
         {
             if (_spriteRenderer == null)
             {
@@ -33,7 +33,7 @@ namespace Figures
             _spriteRenderer.color = FigureColor;
         }
 
-        protected Figure(Color figureColor, bool isTarget)
+        protected void SetUpFigure(Color figureColor, bool isTarget)
         {
             FigureColor = figureColor;
             IsTarget = isTarget;
