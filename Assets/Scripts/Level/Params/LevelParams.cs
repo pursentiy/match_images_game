@@ -9,6 +9,7 @@ namespace Level.Params
     public class LevelParams
     {
         public int LevelNumber;
+        public LevelVisualHandler LevelVisualHandler;
         public List<LevelFigureParams> LevelFiguresParamsList;
     }
 }

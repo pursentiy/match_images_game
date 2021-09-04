@@ -6,9 +6,9 @@ namespace Figures
 {
     public abstract class Figure : MonoBehaviour, IFigure
     {
-        [SerializeField] private SpriteRenderer _spriteRenderer;
+        [SerializeField] protected SpriteRenderer _spriteRenderer;
         [SerializeField] private FigureType _figureType;
-        [SerializeField] private Transform _transform;
+        [SerializeField] protected Transform _transform;
         [SerializeField] private PolygonCollider2D _collider;
         public bool IsCompleted { get; private set; }
         public bool IsTarget { get; private set;}
