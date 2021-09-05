@@ -7,7 +7,6 @@ namespace Level.Hud
     public interface ILevelHudHandler
     {
         void SetupScrollMenu(List<LevelFigureParams> levelFiguresParams);
-        void ConnectFigures(FigureAnimalsMenu figureTarget);
         void LockScroll(bool value);
     }
 }

@@ -5,9 +5,10 @@ namespace Handlers
 {
     public interface IScreenHandler
     {
-        void Initialize(RectTransform popupCanvasTransform, ChooseLevelScreenHandler chooseLevelScreenHandler, WelcomeScreenHandler welcomeScreenHandler);
+        void Initialize(RectTransform popupCanvasTransform, ChooseLevelScreenHandler chooseLevelScreenHandler, WelcomeScreenHandler welcomeScreenHandler, LevelCompleteScreenHandler levelCompleteScreenHandler);
         void ShowChooseLevelScreen();
         void ShowWelcomeScreen();
         void PopupAllScreenHandlers();
+        void ShowLevelCompleteScreen(int currentLevel);
     }
 }

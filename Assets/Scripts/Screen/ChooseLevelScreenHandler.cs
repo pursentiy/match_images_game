@@ -28,8 +28,8 @@ namespace Screen
                     {
                         _gameService.ScreenHandler.PopupAllScreenHandlers();
                         _gameService.LevelSessionHandler.StartLevel(levelParams,
-                            _gameService.LevelHandler.LevelHudHandlerPrefab,
-                            _gameService.LevelHandler.TargetFigureDefaultColor);
+                            _gameService.LevelParamsHandler.LevelHudHandlerPrefab,
+                            _gameService.LevelParamsHandler.TargetFigureDefaultColor);
                     });
             });
         }

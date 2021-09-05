@@ -69,6 +69,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5349929736090748465, guid: 65c46781588fb4f4e813c0d92887f614,
         type: 3}
+      propertyPath: _figuresParentTransform
+      value: 
+      objectReference: {fileID: 1682925379907654112}
+    - target: {fileID: 5349929736090748465, guid: 65c46781588fb4f4e813c0d92887f614,
+        type: 3}
       propertyPath: _figureAnimalsArray.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -104,3 +109,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65c46781588fb4f4e813c0d92887f614, type: 3}
+--- !u!4 &1682925379907654112 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3238269970797015838, guid: 65c46781588fb4f4e813c0d92887f614,
+    type: 3}
+  m_PrefabInstance: {fileID: 4299344274837283582}
+  m_PrefabAsset: {fileID: 0}

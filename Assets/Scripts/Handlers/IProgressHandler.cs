@@ -10,5 +10,7 @@ namespace Handlers
         void UpdateProgress(int levelNumber, FigureType figureType);
         bool CheckForLevelCompletion(int levelNumber);
         List<LevelParams> GetAllLevelsParams();
+        LevelParams GetLevelByNumber(int levelNumber);
+        void ResetLevelProgress(int levelNumber);
     }
 }

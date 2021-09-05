@@ -42,7 +42,7 @@ namespace Services
             
             var rawProgressDataArray = rawTotalProgressData.Split('\n');
             var levelParamsList = rawProgressDataArray.Select(JsonUtility.FromJson<LevelParams>).ToList();
-            return levelParamsList;
+            return levelParamsList.Where(level => level != null).ToList();
         }
     }
 }

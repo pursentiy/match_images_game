@@ -5,10 +5,10 @@ namespace Services
 {
     public interface IGameService
     {
-        void InitializeGameService(IProgressHandler progressHandler, IScreenHandler screenHandler, ILevelSessionHandler levelSessionHandler, ILevelHandler levelHandler);
+        void InitializeGameService(IProgressHandler progressHandler, IScreenHandler screenHandler, ILevelSessionHandler levelSessionHandler, ILevelParamsHandler levelParamsHandler);
         IProgressHandler ProgressHandler { get; }
         IScreenHandler ScreenHandler { get; }
         ILevelSessionHandler LevelSessionHandler { get; }
-        ILevelHandler LevelHandler { get; }
+        ILevelParamsHandler LevelParamsHandler { get; }
     }
 }

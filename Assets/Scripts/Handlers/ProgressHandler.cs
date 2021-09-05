@@ -31,7 +31,7 @@ namespace Handlers
         {
             _gameLevelsProgress.ForEach(levelProgress =>
             {
-                levelProgress.LevelVisualHandler = _levelsParamsStorage.LevelsParamsList.FirstOrDefault(levelParams => levelParams.LevelNumber == levelProgress.LevelNumber)?.LevelVisualHandler;
+                levelProgress.LevelVisualHandler = _levelsParamsStorage.DefaultLevelsParamsList.FirstOrDefault(levelParams => levelParams.LevelNumber == levelProgress.LevelNumber)?.LevelVisualHandler;
             });
         }
         
@@ -54,20 +54,25 @@ namespace Handlers
             
             levelFigure.Completed = true;
             
-            var progress = levelProgress.LevelFiguresParamsList.TrueForAll(levelFigureParams =>
+            var levelCompleted = levelProgress.LevelFiguresParamsList.TrueForAll(levelFigureParams =>
                 levelFigureParams.Completed);
 
-            levelProgress.LevelCompleted = progress;
+            levelProgress.LevelCompleted = levelCompleted;
+
+            if (levelCompleted)
+            {
+                TryUpdateNextLevelPlayableStatus(levelNumber, true);
+            }
         }
 
         private void TryUpdateNextLevelPlayableStatus(int levelNumber, bool value)
         {
-            if (levelNumber + 1 >= _gameLevelsProgress.Count - 1)
+            if (levelNumber + 1 > _gameLevelsProgress.Count)
             {
                 return;
             }
             
-            var levelProgress = GetLevelByNumber(levelNumber);
+            var levelProgress = GetLevelByNumber(levelNumber + 1);
             levelProgress.LevelPlayable = value;
         }
 
@@ -86,7 +91,7 @@ namespace Handlers
             return progress;
         }
         
-        private LevelParams GetLevelByNumber(int levelNumber)
+        public LevelParams GetLevelByNumber(int levelNumber)
         {
             var levelProgress = _gameLevelsProgress.FirstOrDefault(levelParams => levelParams.LevelNumber == levelNumber);
 
@@ -97,6 +102,15 @@ namespace Handlers
             
             Debug.LogWarning($"Could not update progress in level {levelNumber} in {this}");
             return null;
+        }
+
+        public void ResetLevelProgress(int levelNumber)
+        {
+            var currentLevel = GetLevelByNumber(levelNumber);
+            currentLevel.LevelFiguresParamsList.ForEach(levelParams =>
+            {
+                levelParams.Completed = false;
+            });
         }
         
         public List<LevelParams> GetAllLevelsParams()

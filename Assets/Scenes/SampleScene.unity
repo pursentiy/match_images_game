@@ -774,9 +774,11 @@ MonoBehaviour:
   _progressHandler: {fileID: 534889506}
   _screenHandler: {fileID: 534889505}
   _levelSessionHandler: {fileID: 534889509}
-  _levelHandler: {fileID: 534889510}
+  levelParamsParamsHandler: {fileID: 534889510}
   _chooseLevelScreenHandler: {fileID: 2254273223443519542, guid: 416351335fd4abc4aa3b923248ed164b,
     type: 3}
   _welcomeScreenHandler: {fileID: 1496618069183132052, guid: e0a982ea61aaff3479e996a1e981d2c7,
+    type: 3}
+  _levelCompleteScreenHandler: {fileID: 4303779283134089381, guid: 9eb8d4d10e946b848b02cf732383e8bb,
     type: 3}
   _scnreenCanvasTransform: {fileID: 810554863}

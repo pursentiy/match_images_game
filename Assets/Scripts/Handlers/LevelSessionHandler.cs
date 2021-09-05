@@ -4,33 +4,51 @@ using Installers;
 using Level.Game;
 using Level.Hud;
 using Level.Hud.Click;
+using Services;
 using Storage;
 using Storage.Levels.Params;
 using UnityEngine;
 using Zenject;
 
-namespace GameState
+namespace Handlers
 {
     public class LevelSessionHandler : InjectableMonoBehaviour, ILevelSessionHandler
     {
         [Inject] private FiguresStorage _figuresStorage;
+        [Inject] private IGameService _gameService;
 
         [SerializeField] private RectTransform _gameMainCanvasTransform;
         [SerializeField] private RectTransform _draggingTransform;
         [SerializeField] private ClickHandler _clickHandler;
 
-        private ILevelVisualHandler _levelVisualHandler;
-        private ILevelHudHandler _levelHudHandler;
+        private LevelVisualHandler _levelVisualHandler;
+        private LevelHudHandler _levelHudHandler;
         private FigureAnimalsMenu _draggingFigure;
         private FigureAnimalsMenu _menuFigure;
         private bool _isDraggable;
+        private int _currentLevel;
 
         public void StartLevel(LevelParams levelParams, LevelHudHandler levelHudHandler, Color defaultColor)
         {
-            SetUpClickHandler();
+            _currentLevel = levelParams.LevelNumber;
             
+            SetUpClickHandler();
+
             SetupHud(levelParams, levelHudHandler);
             SetupFigures(levelParams, defaultColor);
+            
+            TryHandleLevelCompletion();
+        }
+
+        private void TryHandleLevelCompletion()
+        {
+            if (!_gameService.ProgressHandler.CheckForLevelCompletion(_currentLevel))
+            {
+                return;
+            }
+            
+            _gameService.ScreenHandler.ShowLevelCompleteScreen(_currentLevel);
+            OnDestroyLevel();
         }
 
         private void SetUpClickHandler()
@@ -42,14 +60,16 @@ namespace GameState
 
         private void SetupFigures(LevelParams levelParam, Color defaultColor)
         {
-            _levelVisualHandler = ContainerHolder.CurrentContainer.InstantiatePrefabForComponent<ILevelVisualHandler>(levelParam.LevelVisualHandler);
+            _levelVisualHandler = ContainerHolder.CurrentContainer.InstantiatePrefabForComponent<LevelVisualHandler>(levelParam.LevelVisualHandler);
             _levelVisualHandler.SetupLevel(levelParam.LevelFiguresParamsList, defaultColor);
         }
 
         private void SetupHud(LevelParams levelParam, LevelHudHandler levelHudHandler)
         {
-            _levelHudHandler = ContainerHolder.CurrentContainer.InstantiatePrefabForComponent<ILevelHudHandler>(levelHudHandler, _gameMainCanvasTransform);
+            _levelHudHandler = ContainerHolder.CurrentContainer.InstantiatePrefabForComponent<LevelHudHandler>(levelHudHandler, _gameMainCanvasTransform);
             _levelHudHandler.SetupScrollMenu(levelParam.LevelFiguresParamsList);
+            
+            _levelHudHandler.BackToMenuClickSignal.AddListener(OnDestroyLevel);
         }
 
         private void StartElementDragging(FigureAnimalsMenu figure)
@@ -90,11 +110,14 @@ namespace GameState
 
             if (_draggingFigure.FigureType == releasedOnFigure.FigureType)
             {
+                _gameService.ProgressHandler.UpdateProgress(_currentLevel, releasedOnFigure.FigureType);
                 DOTween.Sequence().Append(_draggingFigure.transform.DOScale(0, 0.4f)).AppendCallback(() =>
                 {
                     ClearDraggingFigure();
                     releasedOnFigure.SetConnected();
                     _menuFigure.SetConnected();
+
+                    TryHandleLevelCompletion();
                 });
             }
             else
@@ -132,11 +155,29 @@ namespace GameState
             _draggingFigure.transform.position = Input.mousePosition;
         }
 
-        private void OnDestroy()
+        private void OnDestroyLevel()
         {
+            DestroyHandlers();
+            
             _clickHandler.StartGrabbingPositionSignal.RemoveListener(StartElementDragging);
             _clickHandler.ReleaseGrabbingPositionSignal.RemoveListener(EndElementDragging);
             _clickHandler.enabled = false;
+        }
+
+        private void DestroyHandlers()
+        {
+            if (_levelHudHandler != null)
+            {
+                _levelHudHandler.BackToMenuClickSignal.RemoveListener(OnDestroyLevel);
+                Destroy(_levelHudHandler.gameObject);
+                _levelHudHandler = null;
+            }
+            
+            if (_levelVisualHandler != null)
+            {
+                Destroy(_levelVisualHandler.gameObject);
+                _levelVisualHandler = null;
+            }
         }
     }
 }

@@ -957,9 +957,17 @@
             <e p="IFigure.cs" t="Include" />
           </e>
           <e p="GameState" t="Include">
-            <e p="ILevelSessionHandler.cs" t="Include" />
-            <e p="LevelSessionHandler.cs" t="Include" />
             <e p="OnGameEnterState.cs" t="Include" />
+          </e>
+          <e p="Handlers" t="Include">
+            <e p="ILevelParamsHandler.cs" t="Include" />
+            <e p="ILevelSessionHandler.cs" t="Include" />
+            <e p="IProgressHandler.cs" t="Include" />
+            <e p="IScreenHandler.cs" t="Include" />
+            <e p="LevelParamsParamsHandler.cs" t="Include" />
+            <e p="LevelSessionHandler.cs" t="Include" />
+            <e p="ProgressHandler.cs" t="Include" />
+            <e p="ScreenHandler.cs" t="Include" />
           </e>
           <e p="Installers" t="Include">
             <e p="ContainerHolder.cs" t="Include" />
@@ -980,12 +988,10 @@
               <e p="LevelHUDHandler.cs" t="Include" />
             </e>
           </e>
-          <e p="ProgressHandlers" t="Include">
-            <e p="IProgressHandler.cs" t="Include" />
-            <e p="ProgressHandler.cs" t="Include" />
-          </e>
           <e p="Screen" t="Include">
-            <e p="ChooseLevelHandler.cs" t="Include" />
+            <e p="ChooseLevelScreenHandler.cs" t="Include" />
+            <e p="LevelCompleteScreenHandler.cs" t="Include" />
+            <e p="ScreenHandler.cs" t="Include" />
             <e p="SubElements" t="Include">
               <e p="LevelEnterPopupHandler.cs" t="Include" />
             </e>

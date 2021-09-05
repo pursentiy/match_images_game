@@ -11,8 +11,7 @@ namespace Screen
         [Inject] private IGameService _gameService;
         
         [SerializeField] private Button _playButton;
-        [SerializeField] private ChooseLevelScreenHandler chooseLevelScreenHandlerScreen;
-        
+
         private void Start()
         {
             _playButton.onClick.AddListener(PushNextScreen);

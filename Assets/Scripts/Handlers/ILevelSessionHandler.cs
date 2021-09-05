@@ -2,7 +2,7 @@
 using Storage.Levels.Params;
 using UnityEngine;
 
-namespace GameState
+namespace Handlers
 {
     public interface ILevelSessionHandler
     {

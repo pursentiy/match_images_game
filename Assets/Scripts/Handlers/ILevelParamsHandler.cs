@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Handlers
 {
-    public interface ILevelHandler
+    public interface ILevelParamsHandler
     { 
         LevelHudHandler LevelHudHandlerPrefab  { get; }
         Color TargetFigureDefaultColor { get; }

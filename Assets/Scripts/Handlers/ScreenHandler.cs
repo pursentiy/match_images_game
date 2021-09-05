@@ -9,12 +9,14 @@ namespace Handlers
         private ChooseLevelScreenHandler _chooseLevelScreenHandler;
         private WelcomeScreenHandler _welcomeScreenHandler;
         private Screen.ScreenHandler _currentScreenHandler;
+        private LevelCompleteScreenHandler _levelCompleteScreenHandler;
 
-        public void Initialize(RectTransform popupCanvasTransform, ChooseLevelScreenHandler chooseLevelScreenHandler, WelcomeScreenHandler welcomeScreenHandler)
+        public void Initialize(RectTransform popupCanvasTransform, ChooseLevelScreenHandler chooseLevelScreenHandler, WelcomeScreenHandler welcomeScreenHandler, LevelCompleteScreenHandler levelCompleteScreenHandler)
         {
             _popupCanvasTransform = popupCanvasTransform;
             _chooseLevelScreenHandler = chooseLevelScreenHandler;
             _welcomeScreenHandler = welcomeScreenHandler;
+            _levelCompleteScreenHandler = levelCompleteScreenHandler;
         }
 
         public void ShowChooseLevelScreen()
@@ -30,14 +32,24 @@ namespace Handlers
 
             _currentScreenHandler = Instantiate(_welcomeScreenHandler, _popupCanvasTransform);
         }
+        
+        public void ShowLevelCompleteScreen(int currentLevel)
+        {
+            PopupAllScreenHandlers();
+
+            _currentScreenHandler = Instantiate(_levelCompleteScreenHandler, _popupCanvasTransform);
+            _currentScreenHandler.CurrentLevel = currentLevel;
+        }
 
         public void PopupAllScreenHandlers()
         {
-            if (_currentScreenHandler != null)
+            if (_currentScreenHandler == null)
             {
-                Destroy(_currentScreenHandler.gameObject);
-                _currentScreenHandler = null;
+                return;
             }
+            
+            Destroy(_currentScreenHandler.gameObject);
+            _currentScreenHandler = null;
         }
     }
 }

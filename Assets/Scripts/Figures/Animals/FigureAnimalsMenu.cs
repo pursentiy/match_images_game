@@ -23,6 +23,7 @@ namespace Figures.Animals
         private void FadeFigure()
         {
             var color = _image.color;
+            
             _image.DOColor(new Color(color.r, color.g, color.b, 0.5f), 0.2f);
         }
 
