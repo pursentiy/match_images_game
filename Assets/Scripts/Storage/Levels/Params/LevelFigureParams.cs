@@ -11,5 +11,6 @@ namespace Storage.Levels.Params
         public float Scale;
         public Color Color;
         public Vector3 Position;
+        public bool Completed;
     }
 }

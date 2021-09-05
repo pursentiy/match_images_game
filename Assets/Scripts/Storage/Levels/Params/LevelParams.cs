@@ -8,6 +8,8 @@ namespace Storage.Levels.Params
     public class LevelParams
     {
         public int LevelNumber;
+        public bool LevelCompleted;
+        public bool RePlayingLevel;
         public LevelVisualHandler LevelVisualHandler;
         public List<LevelFigureParams> LevelFiguresParamsList;
     }

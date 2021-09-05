@@ -941,6 +941,9 @@
             <e p="Version.txt" t="Include" />
           </e>
         </e>
+        <e p="Saves" t="Include">
+          <e p="LevelsProgress.txt" t="Include" />
+        </e>
         <e p="Scripts" t="Include">
           <e p="Figures" t="Include">
             <e p="Animals" t="Include">
@@ -952,6 +955,11 @@
             <e p="Figure.cs" t="Include" />
             <e p="FigureType.cs" t="Include" />
             <e p="IFigure.cs" t="Include" />
+          </e>
+          <e p="GameState" t="Include">
+            <e p="ILevelSessionHandler.cs" t="Include" />
+            <e p="LevelSessionHandler.cs" t="Include" />
+            <e p="OnGameEnterState.cs" t="Include" />
           </e>
           <e p="Installers" t="Include">
             <e p="ContainerHolder.cs" t="Include" />
@@ -972,7 +980,16 @@
               <e p="LevelHUDHandler.cs" t="Include" />
             </e>
           </e>
-          <e p="LevelSessionHandler.cs" t="Include" />
+          <e p="ProgressHandlers" t="Include">
+            <e p="IProgressHandler.cs" t="Include" />
+            <e p="ProgressHandler.cs" t="Include" />
+          </e>
+          <e p="Services" t="Include">
+            <e p="GameService.cs" t="Include" />
+            <e p="IGameService.cs" t="Include" />
+            <e p="IProcessProgressDataService.cs" t="Include" />
+            <e p="ProcessProgressDataService.cs" t="Include" />
+          </e>
           <e p="Storage" t="Include">
             <e p="FigureByTypes" t="Include">
               <e p="FigureByTypeParams.cs" t="Include" />

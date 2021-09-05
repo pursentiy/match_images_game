@@ -1,3 +1,4 @@
+using Services;
 using Storage;
 using Storage.Levels.Params;
 using UnityEngine;
@@ -18,8 +19,10 @@ namespace Installers
             
             _servicesRoot = new GameObject("SceneServices");
             
+            Container.Bind<IGameService>().To<GameService>().FromNewComponentOn(_servicesRoot).AsSingle().NonLazy();
             Container.Bind<LevelsParamsStorage>().FromScriptableObject(levelsParamsStorage).AsSingle().NonLazy();
             Container.Bind<FiguresStorage>().FromScriptableObject(_figuresStorage).AsSingle().NonLazy();
+            Container.Bind<IProcessProgressDataService>().To<ProcessProgressDataService>().AsSingle().NonLazy();
         }
     }
 }
