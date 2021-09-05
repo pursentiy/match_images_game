@@ -2,12 +2,11 @@
 using System.Linq;
 using Figures;
 using Installers;
-using Services;
 using Storage.Levels.Params;
 using UnityEngine;
 using Zenject;
 
-namespace ProgressHandlers
+namespace Handlers
 {
     public class ProgressHandler : InjectableMonoBehaviour, IProgressHandler
     {

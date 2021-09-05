@@ -2,7 +2,7 @@
 using Figures;
 using Storage.Levels.Params;
 
-namespace ProgressHandlers
+namespace Handlers
 {
     public interface IProgressHandler
     {
