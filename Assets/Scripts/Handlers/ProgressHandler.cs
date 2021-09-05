@@ -60,6 +60,17 @@ namespace Handlers
             levelProgress.LevelCompleted = progress;
         }
 
+        private void TryUpdateNextLevelPlayableStatus(int levelNumber, bool value)
+        {
+            if (levelNumber + 1 >= _gameLevelsProgress.Count - 1)
+            {
+                return;
+            }
+            
+            var levelProgress = GetLevelByNumber(levelNumber);
+            levelProgress.LevelPlayable = value;
+        }
+
         public bool CheckForLevelCompletion(int levelNumber)
         {
             var levelProgress = GetLevelByNumber(levelNumber);
@@ -86,6 +97,11 @@ namespace Handlers
             
             Debug.LogWarning($"Could not update progress in level {levelNumber} in {this}");
             return null;
+        }
+        
+        public List<LevelParams> GetAllLevelsParams()
+        {
+            return _gameLevelsProgress;
         }
     }
 }

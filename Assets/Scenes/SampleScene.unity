@@ -420,6 +420,7 @@ RectTransform:
   - {fileID: 1676391184}
   - {fileID: 426540645}
   - {fileID: 810554863}
+  - {fileID: 1481870794}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -439,6 +440,9 @@ GameObject:
   - component: {fileID: 534889507}
   - component: {fileID: 534889506}
   - component: {fileID: 534889505}
+  - component: {fileID: 534889509}
+  - component: {fileID: 534889508}
+  - component: {fileID: 534889510}
   m_Layer: 0
   m_Name: Handlers
   m_TagString: Untagged
@@ -484,6 +488,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &534889508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534889504}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2fa1113f4e427280af461b8830641c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &534889509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534889504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7d3a2106eca044e82f5e91b8168cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameMainCanvasTransform: {fileID: 1676391184}
+  _draggingTransform: {fileID: 426540645}
+  _clickHandler: {fileID: 534889508}
+--- !u!114 &534889510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534889504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6288d9aa76c740759d443d33b493d5b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelHudHandlerPrefab: {fileID: 4202509390955207686, guid: 1746f9ee94e44ec4d9e390bcd6dc4ade,
+    type: 3}
+  _targetFigureDefaultColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &810554862
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +541,7 @@ GameObject:
   - component: {fileID: 810554863}
   - component: {fileID: 810554864}
   m_Layer: 5
-  m_Name: PopsPanel
+  m_Name: ScreenPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -594,6 +640,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1481870793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1481870794}
+  - component: {fileID: 1481870795}
+  m_Layer: 5
+  m_Name: PopsPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1481870794
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481870793}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 522576279}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1481870795
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481870793}
+  m_CullTransparentMesh: 0
 --- !u!1 &1676391183
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,8 +737,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1831689405}
-  - component: {fileID: 1831689406}
-  - component: {fileID: 1831689407}
   - component: {fileID: 1831689408}
   m_Layer: 0
   m_Name: OnGameEnter
@@ -671,33 +759,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1831689406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1831689404}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae7d3a2106eca044e82f5e91b8168cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameMainCanvasTransform: {fileID: 1676391184}
-  _draggingTransform: {fileID: 426540645}
-  _clickHandler: {fileID: 1831689407}
---- !u!114 &1831689407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1831689404}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a2fa1113f4e427280af461b8830641c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1831689408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -711,9 +772,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _progressHandler: {fileID: 534889506}
-  _popupsHandler: {fileID: 534889505}
+  _screenHandler: {fileID: 534889505}
+  _levelSessionHandler: {fileID: 534889509}
+  _levelHandler: {fileID: 534889510}
   _chooseLevelScreenHandler: {fileID: 2254273223443519542, guid: 416351335fd4abc4aa3b923248ed164b,
     type: 3}
   _welcomeScreenHandler: {fileID: 1496618069183132052, guid: e0a982ea61aaff3479e996a1e981d2c7,
     type: 3}
-  _popupCanvasTransform: {fileID: 810554863}
+  _scnreenCanvasTransform: {fileID: 810554863}

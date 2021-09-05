@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using Handlers;
 using Installers;
+using Level.Hud;
 using Level.Hud.Click;
 using Screen;
 using Services;
 using Storage.Levels.Params;
 using UnityEngine;
 using Zenject;
+using ScreenHandler = Handlers.ScreenHandler;
 
 namespace GameState
 {
@@ -18,25 +20,27 @@ namespace GameState
         [Inject] private IGameService _gameService;
 
         [SerializeField] private ProgressHandler _progressHandler;
-        [SerializeField] private PopupsHandler _popupsHandler;
+        [SerializeField] private ScreenHandler _screenHandler;
+        [SerializeField] private LevelSessionHandler _levelSessionHandler;
+        [SerializeField] private LevelHandler _levelHandler;
         
         [SerializeField] private ChooseLevelScreenHandler _chooseLevelScreenHandler;
         [SerializeField] private WelcomeScreenHandler _welcomeScreenHandler;
-        [SerializeField]private RectTransform _popupCanvasTransform;
+        [SerializeField]private RectTransform _scnreenCanvasTransform;
 
         protected override void Awake()
         {
             var savedDataProgress = _processProgressDataService.LoadProgress();
             
-            _popupsHandler.Initialize(_popupCanvasTransform, _chooseLevelScreenHandler, _welcomeScreenHandler);
+            _screenHandler.Initialize(_scnreenCanvasTransform, _chooseLevelScreenHandler, _welcomeScreenHandler);
             _progressHandler.InitializeHandler(savedDataProgress ?? StartNewGameProgress());
             
-            _gameService.InitializeGameService(_progressHandler, _popupsHandler);
+            _gameService.InitializeGameService(_progressHandler, _screenHandler, _levelSessionHandler, _levelHandler);
         }
 
         private void Start()
         {
-            _gameService.PopupsHandler.ShowWelcomeScreen();
+            _gameService.ScreenHandler.ShowWelcomeScreen();
         }
 
         private List<LevelParams> StartNewGameProgress()

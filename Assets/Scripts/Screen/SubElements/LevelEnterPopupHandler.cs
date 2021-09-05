@@ -12,24 +12,14 @@ namespace Screen.SubElements
         [SerializeField] private TMP_Text _levelText;
         [SerializeField] private Button _levelEnterButton;
 
-        private int _levelNumber;
-
-        public FSignal<int> LevelEnterClickedSignal { get; } = new FSignal<int>();
-
-        public void Initialize(int levelNumber, bool isLocked)
+        public void Initialize(int levelNumber, bool isUnlocked, Action action)
         {
             _levelText.text = "Level " + levelNumber;
-            _levelNumber = levelNumber;
 
-            _levelEnterButton.interactable = !isLocked;
-            _lockImage.gameObject.SetActive(!isLocked);
+            _levelEnterButton.interactable = isUnlocked;
+            _lockImage.gameObject.SetActive(!isUnlocked);
 
-            _levelEnterButton.onClick.AddListener(OnClick);
-        }
-
-        private void OnClick()
-        {
-            LevelEnterClickedSignal.Dispatch(_levelNumber);
+            _levelEnterButton.onClick.AddListener(action.Invoke);
         }
 
         private void OnDestroy()

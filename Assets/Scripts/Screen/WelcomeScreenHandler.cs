@@ -20,7 +20,7 @@ namespace Screen
 
         private void PushNextScreen()
         {
-            _gameService.PopupsHandler.ShowChooseLevelScreen();
+            _gameService.ScreenHandler.ShowChooseLevelScreen();
         }
 
         private void OnDestroy()

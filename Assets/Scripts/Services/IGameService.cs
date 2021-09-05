@@ -1,11 +1,14 @@
-﻿using Handlers;
+﻿using GameState;
+using Handlers;
 
 namespace Services
 {
     public interface IGameService
     {
-        void InitializeGameService(IProgressHandler progressHandler, IPopupsHandler popupsHandler);
+        void InitializeGameService(IProgressHandler progressHandler, IScreenHandler screenHandler, ILevelSessionHandler levelSessionHandler, ILevelHandler levelHandler);
         IProgressHandler ProgressHandler { get; }
-        IPopupsHandler PopupsHandler { get; }
+        IScreenHandler ScreenHandler { get; }
+        ILevelSessionHandler LevelSessionHandler { get; }
+        ILevelHandler LevelHandler { get; }
     }
 }

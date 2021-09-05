@@ -10,18 +10,7 @@ namespace Storage.Levels.Params
     public class LevelsParamsStorage : ScriptableObject
     {
         [SerializeField] private List<LevelParams> _levelParamsList;
-        [SerializeField] private LevelHudHandler _levelHudHandlerPrefab;
-        [SerializeField] private Color _targetFigureDefaultColor;
-        
-        public LevelParams GetLevelByNumber(int number)
-        {
-            return _levelParamsList.FirstOrDefault(levelParams => levelParams.LevelNumber == number);
-        }
 
         public List<LevelParams> LevelsParamsList => _levelParamsList;
-
-        public LevelHudHandler LevelHudHandler => _levelHudHandlerPrefab;
-
-        public Color TargetFigureDefaultColor => _targetFigureDefaultColor;
     }
 }

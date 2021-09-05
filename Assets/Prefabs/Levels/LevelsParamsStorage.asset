@@ -15,6 +15,7 @@ MonoBehaviour:
   _levelParamsList:
   - LevelNumber: 1
     LevelCompleted: 0
+    LevelPlayable: 1
     RePlayingLevel: 0
     LevelVisualHandler: {fileID: 7712832656842174280, guid: 302aabbee082d1b4ea6391ba0a09f95b,
       type: 3}
@@ -51,6 +52,7 @@ MonoBehaviour:
       Completed: 0
   - LevelNumber: 2
     LevelCompleted: 0
+    LevelPlayable: 0
     RePlayingLevel: 0
     LevelVisualHandler: {fileID: 8184327403451196623, guid: 41b0d5401817f704e9637865397c2487,
       type: 3}
@@ -92,6 +94,7 @@ MonoBehaviour:
       Completed: 0
   - LevelNumber: 3
     LevelCompleted: 0
+    LevelPlayable: 0
     RePlayingLevel: 0
     LevelVisualHandler: {fileID: 3138188244456962255, guid: 803f4f6d5b057784c90d1bb86e874f9d,
       type: 3}

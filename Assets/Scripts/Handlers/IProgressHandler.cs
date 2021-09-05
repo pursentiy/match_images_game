@@ -9,5 +9,6 @@ namespace Handlers
         void InitializeHandler(List<LevelParams> levelsParams);
         void UpdateProgress(int levelNumber, FigureType figureType);
         bool CheckForLevelCompletion(int levelNumber);
+        List<LevelParams> GetAllLevelsParams();
     }
 }

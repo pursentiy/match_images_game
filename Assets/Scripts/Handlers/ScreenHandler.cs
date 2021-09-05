@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace Handlers
 {
-    public class PopupsHandler : MonoBehaviour, IPopupsHandler
+    public class ScreenHandler : MonoBehaviour, IScreenHandler
     {
         private RectTransform _popupCanvasTransform;
         private ChooseLevelScreenHandler _chooseLevelScreenHandler;
         private WelcomeScreenHandler _welcomeScreenHandler;
-        private ScreenHandler _currentScreenHandler;
+        private Screen.ScreenHandler _currentScreenHandler;
 
         public void Initialize(RectTransform popupCanvasTransform, ChooseLevelScreenHandler chooseLevelScreenHandler, WelcomeScreenHandler welcomeScreenHandler)
         {
@@ -19,24 +19,25 @@ namespace Handlers
 
         public void ShowChooseLevelScreen()
         {
-            if (_currentScreenHandler != null)
-            {
-                Destroy(_currentScreenHandler.gameObject);
-                _currentScreenHandler = null;
-            }
+            PopupAllScreenHandlers();
 
             _currentScreenHandler = Instantiate(_chooseLevelScreenHandler, _popupCanvasTransform);
         }
         
         public void ShowWelcomeScreen()
         {
+            PopupAllScreenHandlers();
+
+            _currentScreenHandler = Instantiate(_welcomeScreenHandler, _popupCanvasTransform);
+        }
+
+        public void PopupAllScreenHandlers()
+        {
             if (_currentScreenHandler != null)
             {
                 Destroy(_currentScreenHandler.gameObject);
                 _currentScreenHandler = null;
             }
-
-            _currentScreenHandler = Instantiate(_welcomeScreenHandler, _popupCanvasTransform);
         }
     }
 }

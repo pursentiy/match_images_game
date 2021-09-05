@@ -27,14 +27,15 @@ namespace GameState
 
         public void StartLevel(LevelParams levelParams, LevelHudHandler levelHudHandler, Color defaultColor)
         {
-            SetClickListeners();
+            SetUpClickHandler();
             
             SetupHud(levelParams, levelHudHandler);
             SetupFigures(levelParams, defaultColor);
         }
 
-        private void SetClickListeners()
+        private void SetUpClickHandler()
         {
+            _clickHandler.enabled = true;
             _clickHandler.StartGrabbingPositionSignal.AddListener(StartElementDragging);
             _clickHandler.ReleaseGrabbingPositionSignal.AddListener(EndElementDragging);
         }
@@ -84,6 +85,7 @@ namespace GameState
             if (releasedOnFigure == null)
             {
                 ResetDraggingFigure();
+                return;
             }
 
             if (_draggingFigure.FigureType == releasedOnFigure.FigureType)
@@ -134,6 +136,7 @@ namespace GameState
         {
             _clickHandler.StartGrabbingPositionSignal.RemoveListener(StartElementDragging);
             _clickHandler.ReleaseGrabbingPositionSignal.RemoveListener(EndElementDragging);
+            _clickHandler.enabled = false;
         }
     }
 }

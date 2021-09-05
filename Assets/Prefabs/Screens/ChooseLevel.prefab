@@ -90,6 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelEnterPopupPrefab: {fileID: 1254989803155256469, guid: b75ad377037e0794d80ef09a4428a081,
     type: 3}
+  _levelEnterPopupsParentTransform: {fileID: 6808412473636373514}
 --- !u!1 &6808412472012616217
 GameObject:
   m_ObjectHideFlags: 0
