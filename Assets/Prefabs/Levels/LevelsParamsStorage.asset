@@ -97,9 +97,9 @@ MonoBehaviour:
       type: 3}
     LevelFiguresParamsList:
     - FigureType: 1
-      Scale: 0
+      Scale: 2.5
       Color: {r: 1, g: 0.25, b: 0.25, a: 1}
-      Position: {x: -3.21, y: 8.2, z: 0}
+      Position: {x: -3.5, y: 3.86, z: 0}
       Completed: 0
     - FigureType: 6
       Scale: 2.5
@@ -129,7 +129,7 @@ MonoBehaviour:
     - FigureType: 0
       Scale: 2.5
       Color: {r: 0, g: 1, b: 0.6127057, a: 1}
-      Position: {x: -2.93, y: 6.49, z: 0}
+      Position: {x: -3.12, y: 8.23, z: 0}
       Completed: 0
     - FigureType: 7
       Scale: 2.5

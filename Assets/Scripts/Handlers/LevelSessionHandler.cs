@@ -28,12 +28,14 @@ namespace Handlers
         private bool _isDraggable;
         private int _currentLevel;
 
+        private Sequence _resetDraggingAnimationSequence;
+        private Sequence _completeDraggingAnimationSequence;
+
         public void StartLevel(LevelParams levelParams, LevelHudHandler levelHudHandler, Color defaultColor)
         {
             _currentLevel = levelParams.LevelNumber;
             
-            SetUpClickHandler();
-
+            SetupClickHandler();
             SetupHud(levelParams, levelHudHandler);
             SetupFigures(levelParams, defaultColor);
             
@@ -51,7 +53,7 @@ namespace Handlers
             OnDestroyLevel();
         }
 
-        private void SetUpClickHandler()
+        private void SetupClickHandler()
         {
             _clickHandler.enabled = true;
             _clickHandler.StartGrabbingPositionSignal.AddListener(StartElementDragging);
@@ -111,7 +113,7 @@ namespace Handlers
             if (_draggingFigure.FigureType == releasedOnFigure.FigureType)
             {
                 _gameService.ProgressHandler.UpdateProgress(_currentLevel, releasedOnFigure.FigureType);
-                DOTween.Sequence().Append(_draggingFigure.transform.DOScale(0, 0.4f)).AppendCallback(() =>
+                _completeDraggingAnimationSequence = DOTween.Sequence().Append(_draggingFigure.transform.DOScale(0, 0.4f)).AppendCallback(() =>
                 {
                     ClearDraggingFigure();
                     releasedOnFigure.SetConnected();
@@ -128,7 +130,7 @@ namespace Handlers
 
         private void ResetDraggingFigure()
         {
-            DOTween.Sequence().Append(_draggingFigure.transform.DOMove(_menuFigure.transform.position, 0.4f))
+            _resetDraggingAnimationSequence = DOTween.Sequence().Append(_draggingFigure.transform.DOMove(_menuFigure.transform.position, 0.4f))
                 .Insert(0.2f, _draggingFigure.transform.DOScale(0, 0.2f))
                 .AppendCallback(ClearDraggingFigure);
         }
@@ -157,6 +159,7 @@ namespace Handlers
 
         private void OnDestroyLevel()
         {
+            ResetAnimationSequences();
             DestroyHandlers();
             
             _clickHandler.StartGrabbingPositionSignal.RemoveListener(StartElementDragging);
@@ -178,6 +181,12 @@ namespace Handlers
                 Destroy(_levelVisualHandler.gameObject);
                 _levelVisualHandler = null;
             }
+        }
+
+        private void ResetAnimationSequences()
+        {
+            _resetDraggingAnimationSequence?.Kill();
+            _completeDraggingAnimationSequence?.Kill();
         }
     }
 }

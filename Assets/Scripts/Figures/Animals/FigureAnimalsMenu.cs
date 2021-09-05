@@ -1,4 +1,5 @@
-﻿using System.Net.Sockets;
+﻿using System;
+using System.Net.Sockets;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ namespace Figures.Animals
     {
         [SerializeField] protected Image _image;
         [SerializeField] protected RectTransform _transform;
+        
+        private Sequence _fadeAnimationSequence;
 
         public void SetUpFigure(Color color)
         {
@@ -24,13 +27,18 @@ namespace Figures.Animals
         {
             var color = _image.color;
             
-            _image.DOColor(new Color(color.r, color.g, color.b, 0.5f), 0.2f);
+            _fadeAnimationSequence = DOTween.Sequence().Append(_image.DOColor(new Color(color.r, color.g, color.b, 0.5f), 0.2f));
         }
 
         public void SetConnected()
         {
             FadeFigure();
             SetFigureCompleted(true);
+        }
+
+        private void OnDestroy()
+        {
+            _fadeAnimationSequence?.Kill();
         }
     }
 }
