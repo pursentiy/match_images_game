@@ -1,4 +1,5 @@
-﻿using Screen;
+﻿using System;
+using Screen;
 using UnityEngine;
 
 namespace Handlers
@@ -9,6 +10,6 @@ namespace Handlers
         void ShowChooseLevelScreen();
         void ShowWelcomeScreen();
         void PopupAllScreenHandlers();
-        void ShowLevelCompleteScreen(int currentLevel);
+        void ShowLevelCompleteScreen(int currentLevel, Camera sourceCamera, Action onFinishAction);
     }
 }

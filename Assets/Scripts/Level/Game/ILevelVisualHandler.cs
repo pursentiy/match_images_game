@@ -8,5 +8,6 @@ namespace Level.Game
     public interface ILevelVisualHandler
     {
         void SetupLevel(List<LevelFigureParams> levelFiguresParams, Color defaultColor);
+        Camera TextureCamera { get; }
     }
 }

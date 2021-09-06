@@ -49,8 +49,8 @@ namespace Handlers
                 return;
             }
             
-            _gameService.ScreenHandler.ShowLevelCompleteScreen(_currentLevel);
-            OnDestroyLevel();
+            _gameService.ScreenHandler.ShowLevelCompleteScreen(_currentLevel, _levelVisualHandler.TextureCamera, OnDestroyLevel);
+            
         }
 
         private void SetupClickHandler()

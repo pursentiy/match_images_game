@@ -20,12 +20,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a0b6676-600f-4237-8073-a35bd0a500b3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MatchImages/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MatchImages/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MatchImages/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MatchImages/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels/LevelHUD.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels/LevelHUD.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels/LevelsParamsStorage.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels/LevelsParamsStorage.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/Rocks/meshes/Materials/No Name.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/Rocks/meshes/Materials/No Name.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/Rocks/meshes/Materials/rock_01Mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/Rocks/meshes/Materials/rock_01Mat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/SpaceShip/Materials/1K_Body-TXTR.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/SpaceShip/Materials/1K_Body-TXTR.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/SpaceShip/Materials/Space_Shooter_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/SpaceShip/Materials/Space_Shooter_Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Materials/stars.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Materials/stars.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Materials/target.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Materials/target.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Meshes/Materials/Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Meshes/Materials/Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Meshes/Materials/shipdoor.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Meshes/Materials/shipdoor.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Textures/Background/Materials/Free_Shmup_Sprites_Starfield 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Textures/Background/Materials/Free_Shmup_Sprites_Starfield 1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Textures/Background/Materials/Free_Shmup_Sprites_Starfield.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Textures/Background/Materials/Free_Shmup_Sprites_Starfield.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Media/Models/Materials/Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Media/Models/Materials/Material.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Levels/Level.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Levels/Level.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Screens/LevelCompletedScreen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Screens/LevelCompletedScreen.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Saves/LevelsProgress.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Saves/LevelsProgress.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Figures/Animals/FigureAnimalsMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Figures/Animals/FigureAnimalsMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Handlers/IScreenHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Handlers/IScreenHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Handlers/LevelSessionHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Handlers/LevelSessionHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Handlers/ScreenHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Handlers/ScreenHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/Game/ILevelVisualHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/Game/ILevelVisualHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Level/Game/LevelVisualHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Level/Game/LevelVisualHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Screen/LevelCompleteScreenHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Screen/LevelCompleteScreenHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +58,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Handlers/LevelSessionHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Level/Game/LevelVisualHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FCB9DAC8-AE3A-4886-93B0-F4CD5B0DB0BE/54/0dc6f91d/Action.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A5949084-5872-4118-9A97-4C7DF1839E1C/0e/648d5221/ScriptableObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/DE1F8EF4-975B-4EAC-BEB0-ACCC1B22C9B0/6d/01b73320/TweenerCore`3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/DE1F8EF4-975B-4EAC-BEB0-ACCC1B22C9B0/45/a3233095/TweenExtensions.cs" root0="SKIP_HIGHLIGHTING" />
@@ -81,21 +102,21 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Screen/WelcomeScreenHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Services/ProcessProgressDataService.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Level/Hud/ILevelHUDHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Level/Game/ILevelVisualHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Level/Game/LevelVisualHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Level/Hud/LevelHudHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Handlers/IScreenHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Handlers/ScreenHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Handlers/IProgressHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Screen/ScreenHandler.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Screen/LevelCompleteScreenHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Storage/Levels/Params/LevelParams.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Storage/Levels/Params/LevelsParamsStorage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Installers/MainInstaller.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Handlers/ProgressHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Saves/LevelsProgress.txt" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Figures/Animals/FigureAnimalsMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Handlers/IScreenHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Level/Game/ILevelVisualHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Level/Game/LevelVisualHandler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Handlers/LevelSessionHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Handlers/ScreenHandler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Screen/LevelCompleteScreenHandler.cs" />
       </list>
     </option>
   </component>
@@ -125,10 +146,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="32892">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="11440">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="32892" />
+      <option name="pid" value="11440" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -146,6 +167,8 @@
       <workItem from="1630743276188" duration="11774000" />
       <workItem from="1630756552255" duration="20469000" />
       <workItem from="1630828977222" duration="30329000" />
+      <workItem from="1630930077061" duration="890000" />
+      <workItem from="1630940056021" duration="5833000" />
     </task>
     <servers />
   </component>
@@ -170,74 +193,74 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="584" height="464" key="DebuggerActiveHint" timestamp="1630863259222">
+    <state width="584" height="464" key="DebuggerActiveHint" timestamp="1630957749938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="584" height="464" key="DebuggerActiveHint/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630863259222" />
-    <state width="1877" height="124" key="GridCell.Tab.0.bottom" timestamp="1630863228725">
+    <state width="584" height="464" key="DebuggerActiveHint/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630957749938" />
+    <state width="1877" height="124" key="GridCell.Tab.0.bottom" timestamp="1630957548193">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630863228725" />
-    <state width="1877" height="124" key="GridCell.Tab.0.center" timestamp="1630863228725">
+    <state width="1877" height="124" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630957548193" />
+    <state width="1877" height="124" key="GridCell.Tab.0.center" timestamp="1630957548192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.0.center/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630863228725" />
-    <state width="1877" height="124" key="GridCell.Tab.0.left" timestamp="1630863228725">
+    <state width="1877" height="124" key="GridCell.Tab.0.center/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630957548192" />
+    <state width="1877" height="124" key="GridCell.Tab.0.left" timestamp="1630957548192">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.0.left/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630863228725" />
-    <state width="1877" height="124" key="GridCell.Tab.0.right" timestamp="1630863228725">
+    <state width="1877" height="124" key="GridCell.Tab.0.left/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630957548192" />
+    <state width="1877" height="124" key="GridCell.Tab.0.right" timestamp="1630957548193">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.0.right/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630863228725" />
-    <state width="1877" height="124" key="GridCell.Tab.1.bottom" timestamp="1630863251726">
+    <state width="1877" height="124" key="GridCell.Tab.0.right/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630957548193" />
+    <state width="1877" height="124" key="GridCell.Tab.1.bottom" timestamp="1630957701285">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630863251726" />
-    <state width="1877" height="124" key="GridCell.Tab.1.center" timestamp="1630863251726">
+    <state width="1877" height="124" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630957701285" />
+    <state width="1877" height="124" key="GridCell.Tab.1.center" timestamp="1630957701284">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.1.center/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630863251726" />
-    <state width="1877" height="124" key="GridCell.Tab.1.left" timestamp="1630863251726">
+    <state width="1877" height="124" key="GridCell.Tab.1.center/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630957701284" />
+    <state width="1877" height="124" key="GridCell.Tab.1.left" timestamp="1630957701284">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.1.left/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630863251726" />
-    <state width="1877" height="124" key="GridCell.Tab.1.right" timestamp="1630863251726">
+    <state width="1877" height="124" key="GridCell.Tab.1.left/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630957701284" />
+    <state width="1877" height="124" key="GridCell.Tab.1.right" timestamp="1630957701284">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.1.right/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630863251726" />
-    <state width="1877" height="124" key="GridCell.Tab.2.bottom" timestamp="1630863228575">
+    <state width="1877" height="124" key="GridCell.Tab.1.right/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630957701284" />
+    <state width="1877" height="124" key="GridCell.Tab.2.bottom" timestamp="1630957547872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630863228575" />
-    <state width="1877" height="124" key="GridCell.Tab.2.center" timestamp="1630863228574">
+    <state width="1877" height="124" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630957547872" />
+    <state width="1877" height="124" key="GridCell.Tab.2.center" timestamp="1630957547872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.2.center/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630863228574" />
-    <state width="1877" height="124" key="GridCell.Tab.2.left" timestamp="1630863228574">
+    <state width="1877" height="124" key="GridCell.Tab.2.center/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630957547872" />
+    <state width="1877" height="124" key="GridCell.Tab.2.left" timestamp="1630957547872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.2.left/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630863228574" />
-    <state width="1877" height="124" key="GridCell.Tab.2.right" timestamp="1630863228574">
+    <state width="1877" height="124" key="GridCell.Tab.2.left/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630957547872" />
+    <state width="1877" height="124" key="GridCell.Tab.2.right" timestamp="1630957547872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.2.right/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630863228574" />
-    <state width="1877" height="124" key="GridCell.Tab.3.bottom" timestamp="1630863228575">
+    <state width="1877" height="124" key="GridCell.Tab.2.right/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630957547872" />
+    <state width="1877" height="124" key="GridCell.Tab.3.bottom" timestamp="1630957547873">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630863228575" />
-    <state width="1877" height="124" key="GridCell.Tab.3.center" timestamp="1630863228575">
+    <state width="1877" height="124" key="GridCell.Tab.3.bottom/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630957547873" />
+    <state width="1877" height="124" key="GridCell.Tab.3.center" timestamp="1630957547873">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.3.center/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630863228575" />
-    <state width="1877" height="124" key="GridCell.Tab.3.left" timestamp="1630863228575">
+    <state width="1877" height="124" key="GridCell.Tab.3.center/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630957547873" />
+    <state width="1877" height="124" key="GridCell.Tab.3.left" timestamp="1630957547872">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.3.left/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630863228575" />
-    <state width="1877" height="124" key="GridCell.Tab.3.right" timestamp="1630863228575">
+    <state width="1877" height="124" key="GridCell.Tab.3.left/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630957547872" />
+    <state width="1877" height="124" key="GridCell.Tab.3.right" timestamp="1630957547873">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="124" key="GridCell.Tab.3.right/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630863228575" />
+    <state width="1877" height="124" key="GridCell.Tab.3.right/0.0.1920.1040/1920.-11.1536.824/3840.302.1366.728@0.0.1920.1040" timestamp="1630957547873" />
     <state x="731" y="221" key="RiderGenerateDialog" timestamp="1630832741499">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -263,43 +286,30 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/GameState/OnGameEnterState.cs</url>
-          <line>35</line>
-          <properties documentPath="D:\Unity\MatchImages\Assets\Scripts\GameState\OnGameEnterState.cs" initialLine="35">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Screen/LevelCompleteScreenHandler.cs</url>
+          <line>62</line>
+          <properties documentPath="D:\Unity\MatchImages\Assets\Scripts\Screen\LevelCompleteScreenHandler.cs" initialLine="62">
             <startOffsets>
-              <option value="1328" />
+              <option value="2130" />
             </startOffsets>
             <endOffsets>
-              <option value="1458" />
+              <option value="2182" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="50" />
+          <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Screen/LevelCompleteScreenHandler.cs</url>
-          <line>28</line>
-          <properties documentPath="D:\Unity\MatchImages\Assets\Scripts\Screen\LevelCompleteScreenHandler.cs" initialLine="28">
+          <line>58</line>
+          <properties documentPath="D:\Unity\MatchImages\Assets\Scripts\Screen\LevelCompleteScreenHandler.cs" initialLine="58">
             <startOffsets>
-              <option value="712" />
+              <option value="1975" />
             </startOffsets>
             <endOffsets>
-              <option value="736" />
+              <option value="2054" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/DE1F8EF4-975B-4EAC-BEB0-ACCC1B22C9B0/45/a3233095/TweenExtensions.cs</url>
-          <line>145</line>
-          <properties documentPath="C:\Users\pursentiy\AppData\Roaming\JetBrains\Rider2020.2\resharper-host\DecompilerCache\decompiler\DE1F8EF4-975B-4EAC-BEB0-ACCC1B22C9B0\45\a3233095\TweenExtensions.cs" initialLine="145">
-            <startOffsets>
-              <option value="4713" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4738" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="55" />
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

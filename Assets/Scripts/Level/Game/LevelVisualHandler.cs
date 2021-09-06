@@ -14,13 +14,14 @@ namespace Level.Game
         [Inject] private FiguresStorage _figuresStorage;
 
         [SerializeField] private Transform _figuresParentTransform;
-
+        [SerializeField] private Camera _textureCamera;
+        
+        public Camera TextureCamera => _textureCamera;
+        
         public void SetupLevel(List<LevelFigureParams> levelFiguresParams, Color defaultColor)
         {
             levelFiguresParams.ForEach(figure => SetFigure(figure, defaultColor));
         }
-        
-        
 
         private void SetFigure(LevelFigureParams figureParams, Color defaultColor)
         {

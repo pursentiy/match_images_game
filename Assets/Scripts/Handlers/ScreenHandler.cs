@@ -1,4 +1,5 @@
-﻿using Screen;
+﻿using System;
+using Screen;
 using UnityEngine;
 
 namespace Handlers
@@ -33,11 +34,15 @@ namespace Handlers
             _currentScreenHandler = Instantiate(_welcomeScreenHandler, _popupCanvasTransform);
         }
         
-        public void ShowLevelCompleteScreen(int currentLevel)
+        public void ShowLevelCompleteScreen(int currentLevel, Camera sourceCamera, Action onFinishAction)
         {
             PopupAllScreenHandlers();
 
-            _currentScreenHandler = Instantiate(_levelCompleteScreenHandler, _popupCanvasTransform);
+            var screenHandler = Instantiate(_levelCompleteScreenHandler, _popupCanvasTransform);
+            screenHandler.SetOnFinishLevelSessionAction(onFinishAction);
+            screenHandler.SetupTextureCamera(sourceCamera);
+            
+            _currentScreenHandler = screenHandler;
             _currentScreenHandler.CurrentLevel = currentLevel;
         }
 
