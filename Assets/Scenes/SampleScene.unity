@@ -154,6 +154,10 @@ MonoBehaviour:
   levelsParamsStorage: {fileID: 11400000, guid: 923faedb36c5c974e8c07f9c24ad9f62,
     type: 2}
   _figuresStorage: {fileID: 11400000, guid: ee10b72902a1ab94db068e4883dc8e28, type: 2}
+  _progressHandler: {fileID: 534889506}
+  _screenHandler: {fileID: 534889505}
+  _levelSessionHandler: {fileID: 534889509}
+  _levelParamsHandler: {fileID: 534889510}
 --- !u!114 &237686205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +259,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -270,6 +275,37 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -279,7 +315,7 @@ Camera:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -462,6 +498,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a44a24db48da4690b36812f452ff5c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _screenCanvasTransform: {fileID: 810554863}
+  chooseLevelScreenBase: {fileID: 2254273223443519542, guid: 416351335fd4abc4aa3b923248ed164b,
+    type: 3}
+  welcomeScreenBase: {fileID: 1496618069183132052, guid: e0a982ea61aaff3479e996a1e981d2c7,
+    type: 3}
+  levelCompleteScreenBase: {fileID: 4303779283134089381, guid: 9eb8d4d10e946b848b02cf732383e8bb,
+    type: 3}
 --- !u!114 &534889506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -771,14 +814,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3880b7ea4f124487992c7891a4f18d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _progressHandler: {fileID: 534889506}
-  _screenHandler: {fileID: 534889505}
-  _levelSessionHandler: {fileID: 534889509}
-  levelParamsParamsHandler: {fileID: 534889510}
-  _chooseLevelScreenHandler: {fileID: 2254273223443519542, guid: 416351335fd4abc4aa3b923248ed164b,
-    type: 3}
-  _welcomeScreenHandler: {fileID: 1496618069183132052, guid: e0a982ea61aaff3479e996a1e981d2c7,
-    type: 3}
-  _levelCompleteScreenHandler: {fileID: 4303779283134089381, guid: 9eb8d4d10e946b848b02cf732383e8bb,
-    type: 3}
-  _scnreenCanvasTransform: {fileID: 810554863}

@@ -1,14 +1,13 @@
-﻿using System;
-using Services;
+﻿using Handlers;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
 namespace Screen
 {
-    public class WelcomeScreenHandler : ScreenHandler
+    public class WelcomeScreenBase : ScreenBase
     {
-        [Inject] private IGameService _gameService;
+        [Inject] private ScreenHandler _screenHandler;
         
         [SerializeField] private Button _playButton;
 
@@ -19,7 +18,7 @@ namespace Screen
 
         private void PushNextScreen()
         {
-            _gameService.ScreenHandler.ShowChooseLevelScreen();
+            _screenHandler.ShowChooseLevelScreen();
         }
 
         private void OnDestroy()

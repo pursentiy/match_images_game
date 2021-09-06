@@ -1,60 +1,54 @@
 ﻿using System;
+using Installers;
 using Screen;
 using UnityEngine;
 
 namespace Handlers
 {
-    public class ScreenHandler : MonoBehaviour, IScreenHandler
+    public class ScreenHandler : InjectableMonoBehaviour, IScreenHandler
     {
-        private RectTransform _popupCanvasTransform;
-        private ChooseLevelScreenHandler _chooseLevelScreenHandler;
-        private WelcomeScreenHandler _welcomeScreenHandler;
-        private Screen.ScreenHandler _currentScreenHandler;
-        private LevelCompleteScreenHandler _levelCompleteScreenHandler;
-
-        public void Initialize(RectTransform popupCanvasTransform, ChooseLevelScreenHandler chooseLevelScreenHandler, WelcomeScreenHandler welcomeScreenHandler, LevelCompleteScreenHandler levelCompleteScreenHandler)
-        {
-            _popupCanvasTransform = popupCanvasTransform;
-            _chooseLevelScreenHandler = chooseLevelScreenHandler;
-            _welcomeScreenHandler = welcomeScreenHandler;
-            _levelCompleteScreenHandler = levelCompleteScreenHandler;
-        }
+        [SerializeField] private RectTransform _screenCanvasTransform;
+        [SerializeField] private ChooseLevelScreenBase chooseLevelScreenBase;
+        [SerializeField] private WelcomeScreenBase welcomeScreenBase;
+        [SerializeField] private LevelCompleteScreenBase levelCompleteScreenBase;
+        
+        private Screen.ScreenBase _currentScreenBase;
 
         public void ShowChooseLevelScreen()
         {
             PopupAllScreenHandlers();
 
-            _currentScreenHandler = Instantiate(_chooseLevelScreenHandler, _popupCanvasTransform);
+            _currentScreenBase = Instantiate(chooseLevelScreenBase, _screenCanvasTransform);
         }
         
         public void ShowWelcomeScreen()
         {
             PopupAllScreenHandlers();
 
-            _currentScreenHandler = Instantiate(_welcomeScreenHandler, _popupCanvasTransform);
+            _currentScreenBase = Instantiate(welcomeScreenBase, _screenCanvasTransform);
         }
         
         public void ShowLevelCompleteScreen(int currentLevel, Camera sourceCamera, Action onFinishAction)
         {
             PopupAllScreenHandlers();
 
-            var screenHandler = Instantiate(_levelCompleteScreenHandler, _popupCanvasTransform);
+            var screenHandler = Instantiate(levelCompleteScreenBase, _screenCanvasTransform);
             screenHandler.SetOnFinishLevelSessionAction(onFinishAction);
             screenHandler.SetupTextureCamera(sourceCamera);
             
-            _currentScreenHandler = screenHandler;
-            _currentScreenHandler.CurrentLevel = currentLevel;
+            _currentScreenBase = screenHandler;
+            _currentScreenBase.CurrentLevel = currentLevel;
         }
 
         public void PopupAllScreenHandlers()
         {
-            if (_currentScreenHandler == null)
+            if (_currentScreenBase == null)
             {
                 return;
             }
             
-            Destroy(_currentScreenHandler.gameObject);
-            _currentScreenHandler = null;
+            Destroy(_currentScreenBase.gameObject);
+            _currentScreenBase = null;
         }
     }
 }

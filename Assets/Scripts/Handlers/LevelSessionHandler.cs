@@ -4,7 +4,6 @@ using Installers;
 using Level.Game;
 using Level.Hud;
 using Level.Hud.Click;
-using Services;
 using Storage;
 using Storage.Levels.Params;
 using UnityEngine;
@@ -15,7 +14,8 @@ namespace Handlers
     public class LevelSessionHandler : InjectableMonoBehaviour, ILevelSessionHandler
     {
         [Inject] private FiguresStorage _figuresStorage;
-        [Inject] private IGameService _gameService;
+        [Inject] private ProgressHandler _progressHandler;
+        [Inject] private ScreenHandler _screenHandler;
 
         [SerializeField] private RectTransform _gameMainCanvasTransform;
         [SerializeField] private RectTransform _draggingTransform;
@@ -44,12 +44,12 @@ namespace Handlers
 
         private void TryHandleLevelCompletion()
         {
-            if (!_gameService.ProgressHandler.CheckForLevelCompletion(_currentLevel))
+            if (!_progressHandler.CheckForLevelCompletion(_currentLevel))
             {
                 return;
             }
             
-            _gameService.ScreenHandler.ShowLevelCompleteScreen(_currentLevel, _levelVisualHandler.TextureCamera, OnDestroyLevel);
+            _screenHandler.ShowLevelCompleteScreen(_currentLevel, _levelVisualHandler.TextureCamera, OnDestroyLevel);
             
         }
 
@@ -112,7 +112,7 @@ namespace Handlers
 
             if (_draggingFigure.FigureType == releasedOnFigure.FigureType)
             {
-                _gameService.ProgressHandler.UpdateProgress(_currentLevel, releasedOnFigure.FigureType);
+                _progressHandler.UpdateProgress(_currentLevel, releasedOnFigure.FigureType);
                 _completeDraggingAnimationSequence = DOTween.Sequence().Append(_draggingFigure.transform.DOScale(0, 0.4f)).AppendCallback(() =>
                 {
                     ClearDraggingFigure();

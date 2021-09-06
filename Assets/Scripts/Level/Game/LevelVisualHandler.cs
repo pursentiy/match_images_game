@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using Figures.Animals;
 using Installers;
-using Plugins.FSignal;
 using Storage;
 using Storage.Levels.Params;
 using UnityEngine;

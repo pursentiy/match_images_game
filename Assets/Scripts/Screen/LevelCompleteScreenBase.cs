@@ -1,14 +1,17 @@
 ﻿using System;
-using Services;
+using Handlers;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
 namespace Screen
 {
-    public class LevelCompleteScreenHandler : ScreenHandler
+    public class LevelCompleteScreenBase : ScreenBase
     {
-        [Inject] private IGameService _gameService;
+        [Inject] private ScreenHandler _screenHandler;
+        [Inject] private LevelSessionHandler _levelSessionHandler;
+        [Inject] private LevelParamsHandler _levelParamsHandler;
+        [Inject] private ProgressHandler _progressHandler;
         
         [SerializeField] private Button _backButton;
         [SerializeField] private Button _tryAgainButton;
@@ -43,7 +46,7 @@ namespace Screen
 
         private void InitializeLevelsButton()
         {
-            _backButton.onClick.AddListener(_gameService.ScreenHandler.ShowChooseLevelScreen);
+            _backButton.onClick.AddListener(_screenHandler.ShowChooseLevelScreen);
             _tryAgainButton.onClick.AddListener(TryAgainLevel);
         }
 
@@ -52,16 +55,16 @@ namespace Screen
             if (_currentLevel == -1)
             {
                 Debug.LogWarning($"Current Level is {_currentLevel}. Cannot continue. Warning in {this}");
-                _gameService.ScreenHandler.ShowChooseLevelScreen();
+                _screenHandler.ShowChooseLevelScreen();
             }
             
-            _gameService.ProgressHandler.ResetLevelProgress(_currentLevel);
-            var levelParams = _gameService.ProgressHandler.GetLevelByNumber(_currentLevel);
+            _progressHandler.ResetLevelProgress(_currentLevel);
+            var levelParams = _progressHandler.GetLevelByNumber(_currentLevel);
 
             TryInvokeFinishLevelSessionAction();
             
-            _gameService.ScreenHandler.PopupAllScreenHandlers();
-            _gameService.LevelSessionHandler.StartLevel(levelParams, _gameService.LevelParamsHandler.LevelHudHandlerPrefab, _gameService.LevelParamsHandler.TargetFigureDefaultColor);
+            _screenHandler.PopupAllScreenHandlers();
+            _levelSessionHandler.StartLevel(levelParams, _levelParamsHandler.LevelHudHandlerPrefab, _levelParamsHandler.TargetFigureDefaultColor);
         }
         
         private void OnDestroy()

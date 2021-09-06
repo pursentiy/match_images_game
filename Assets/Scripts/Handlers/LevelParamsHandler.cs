@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Handlers
 {
-    public class LevelParamsParamsHandler : MonoBehaviour, ILevelParamsHandler
+    public class LevelParamsHandler : MonoBehaviour, ILevelParamsHandler
     {
         [SerializeField] private LevelHudHandler _levelHudHandlerPrefab;
         [SerializeField] private Color _targetFigureDefaultColor;

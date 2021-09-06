@@ -2,7 +2,7 @@
 
 namespace Screen
 {
-    public abstract class ScreenHandler : InjectableMonoBehaviour
+    public abstract class ScreenBase : InjectableMonoBehaviour
     {
         protected int _currentLevel = -1;
         

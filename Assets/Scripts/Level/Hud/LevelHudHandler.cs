@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Figures.Animals;
+using Handlers;
 using Installers;
 using Plugins.FSignal;
-using Services;
 using Storage;
 using Storage.Levels.Params;
 using UnityEngine;
@@ -15,8 +14,8 @@ namespace Level.Hud
     public class LevelHudHandler : InjectableMonoBehaviour, ILevelHudHandler
     {
         [Inject] private FiguresStorage _figuresStorage;
-        [Inject] private IGameService _gameService;
-        
+        [Inject] private ScreenHandler _screenHandler;
+
         [SerializeField] private RectTransform _figuresParentTransform;
         [SerializeField] private ScrollRect _scrollRect;
         [SerializeField] private Button _backButton;
@@ -62,7 +61,7 @@ namespace Level.Hud
         private void GoToMainMenuScreen()
         {
             BackToMenuClickSignal.Dispatch();
-            _gameService.ScreenHandler.ShowChooseLevelScreen();
+            _screenHandler.ShowChooseLevelScreen();
         }
 
         public void LockScroll(bool value)

@@ -964,7 +964,7 @@
             <e p="ILevelSessionHandler.cs" t="Include" />
             <e p="IProgressHandler.cs" t="Include" />
             <e p="IScreenHandler.cs" t="Include" />
-            <e p="LevelParamsParamsHandler.cs" t="Include" />
+            <e p="LevelParamsHandler.cs" t="Include" />
             <e p="LevelSessionHandler.cs" t="Include" />
             <e p="ProgressHandler.cs" t="Include" />
             <e p="ScreenHandler.cs" t="Include" />
@@ -989,17 +989,15 @@
             </e>
           </e>
           <e p="Screen" t="Include">
-            <e p="ChooseLevelScreenHandler.cs" t="Include" />
-            <e p="LevelCompleteScreenHandler.cs" t="Include" />
-            <e p="ScreenHandler.cs" t="Include" />
+            <e p="ChooseLevelScreenBase.cs" t="Include" />
+            <e p="LevelCompleteScreenBase.cs" t="Include" />
+            <e p="ScreenBase.cs" t="Include" />
             <e p="SubElements" t="Include">
               <e p="LevelEnterPopupHandler.cs" t="Include" />
             </e>
-            <e p="WelcomeScreenHandler.cs" t="Include" />
+            <e p="WelcomeScreenBase.cs" t="Include" />
           </e>
           <e p="Services" t="Include">
-            <e p="GameService.cs" t="Include" />
-            <e p="IGameService.cs" t="Include" />
             <e p="IProcessProgressDataService.cs" t="Include" />
             <e p="ProcessProgressDataService.cs" t="Include" />
           </e>

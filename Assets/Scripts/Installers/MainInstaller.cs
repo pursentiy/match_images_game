@@ -1,3 +1,4 @@
+using Handlers;
 using Services;
 using Storage;
 using Storage.Levels.Params;
@@ -11,15 +12,19 @@ namespace Installers
         [SerializeField] private LevelsParamsStorage levelsParamsStorage;
         [SerializeField] private FiguresStorage _figuresStorage;
         
-        private GameObject _servicesRoot;
-        
+        [SerializeField] private ProgressHandler _progressHandler;
+        [SerializeField] private ScreenHandler _screenHandler;
+        [SerializeField] private LevelSessionHandler _levelSessionHandler;
+        [SerializeField] private LevelParamsHandler _levelParamsHandler;
+
         public override void InstallBindings()
         {
             ContainerHolder.OnProjectInstall(Container);
-            
-            _servicesRoot = new GameObject("SceneServices");
-            
-            Container.Bind<IGameService>().To<GameService>().FromNewComponentOn(_servicesRoot).AsSingle().NonLazy();
+
+            Container.Bind<ProgressHandler>().FromInstance(_progressHandler);
+            Container.Bind<ScreenHandler>().FromInstance(_screenHandler);
+            Container.Bind<LevelSessionHandler>().FromInstance(_levelSessionHandler);
+            Container.Bind<LevelParamsHandler>().FromInstance(_levelParamsHandler);
             Container.Bind<LevelsParamsStorage>().FromNewScriptableObject(levelsParamsStorage).AsTransient().NonLazy();
             Container.Bind<FiguresStorage>().FromScriptableObject(_figuresStorage).AsSingle().NonLazy();
             Container.Bind<IProcessProgressDataService>().To<ProcessProgressDataService>().AsSingle().NonLazy();
