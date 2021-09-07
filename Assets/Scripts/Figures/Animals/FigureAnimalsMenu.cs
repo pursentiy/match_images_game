@@ -22,14 +22,13 @@ namespace Figures.Animals
         public FSignal<PointerEventData> OnBeginDragSignal { get; } = new FSignal<PointerEventData>();
         public FSignal<PointerEventData> OnDraggingSignal { get; } = new FSignal<PointerEventData>();
         public FSignal<PointerEventData> OnEndDragSignal { get; } = new FSignal<PointerEventData>();
-        
-        public int SiblingPosition { get; private set; }
+
+        public int SiblingPosition { get; set; }
         public Vector3 InitialPosition { get; set; }
 
-        public void SetUpFigure(Color color, int siblingPosition)
+        public void SetUpFigure(Color color)
         {
             _image.color = color;
-            SiblingPosition = siblingPosition;
         }
 
         public void SetScale(float scale)
@@ -70,7 +69,7 @@ namespace Figures.Animals
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            if (!(eventData.delta.y < YDeltaDispersion) || !(eventData.delta.y > -1 * YDeltaDispersion))
+            if (!(eventData.delta.y < YDeltaDispersion) )
             {
                 OnBeginDragFigureSignal.Dispatch(this);
                 return;

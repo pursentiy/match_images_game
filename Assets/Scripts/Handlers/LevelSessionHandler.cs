@@ -90,6 +90,8 @@ namespace Handlers
         private void SetupDraggingFigure(FigureType figureType)
         {
             _draggingFigure = _levelHudHandler.GetFigureByType(figureType);
+            _draggingFigure.InitialPosition = _draggingFigure.transform.position;
+            _draggingFigure.SiblingPosition = _draggingFigure.transform.GetSiblingIndex();
             _draggingFigure.transform.SetParent(_draggingTransform);
         }
 

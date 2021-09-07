@@ -43,9 +43,7 @@ namespace Level.Hud
                 SetFigure(figureParams, index);
                 index++;
             });
-            SetInitialFiguresPositions();
         }
-        
 
         private void SetFigure(LevelFigureParams figureParams, int siblingIndex)
         {
@@ -64,18 +62,10 @@ namespace Level.Hud
             
             var figure = Instantiate(figurePrefab.FigureMenu, _figuresParentTransform);
             figure.SetUpDefaultParamsFigure(figureParams.Color, figureParams.FigureType);
-            figure.SetUpFigure(figure.FigureColor, siblingIndex);
+            figure.SetUpFigure(figure.FigureColor);
             _figureAnimalsMenuList.Add(figure);
             
             SetupDraggingSignalsHandlers(figure);
-        }
-
-        private void SetInitialFiguresPositions()
-        {
-            _figureAnimalsMenuList.ForEach(figure =>
-            {
-                figure.InitialPosition = figure.transform.position;
-            });
         }
 
         private void SetupDraggingSignalsHandlers(FigureAnimalsMenu figure)
@@ -130,7 +120,7 @@ namespace Level.Hud
         {
             var figure = GetFigureByType(type);
             figure.transform.SetParent(_figuresParentTransform);
-            //figure.transform.SetSiblingIndex(figure.SiblingPosition);
+            figure.transform.SetSiblingIndex(figure.SiblingPosition);
         }
 
         private void OnDestroy()
