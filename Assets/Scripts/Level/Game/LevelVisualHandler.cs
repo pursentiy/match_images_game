@@ -35,5 +35,7 @@ namespace Level.Game
             figure.SetUpFigure(figureParams.Completed ? figureParams.Color : defaultColor, figureParams.Scale, figureParams.Position);
             figure.SetUpDefaultParamsFigure(figureParams.Color, figureParams.FigureType);
         }
+        
+        
     }
 }

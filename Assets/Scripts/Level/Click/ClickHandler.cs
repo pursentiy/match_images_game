@@ -42,7 +42,7 @@ namespace Level.Hud.Click
             
             var figure = TryGetFigureAnimalMenuOnDragStart(Input.mousePosition);
             _isDragging = true;
-            StartGrabbingPositionSignal.Dispatch(figure);
+            //StartGrabbingPositionSignal.Dispatch(figure);
         }
 
         private void TryDetectGrabRelease()
@@ -54,7 +54,7 @@ namespace Level.Hud.Click
 
             var figure = TryGetFigureAnimalTargetOnDragEnd(Input.mousePosition);
             
-            ReleaseGrabbingPositionSignal.Dispatch(figure);
+            //ReleaseGrabbingPositionSignal.Dispatch(figure);
             _isDragging = false;
         }
         

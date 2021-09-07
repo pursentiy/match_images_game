@@ -1,21 +1,34 @@
 ﻿using System;
 using System.Net.Sockets;
 using DG.Tweening;
+using Plugins.FSignal;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Figures.Animals
 {
-    public class FigureAnimalsMenu : Figure, IFigureAnimalsMenu
+    public class FigureAnimalsMenu : Figure, IFigureAnimalsMenu, IDragHandler, IBeginDragHandler, IEndDragHandler
     {
         [SerializeField] protected Image _image;
         [SerializeField] protected RectTransform _transform;
         
+        private const float YDeltaDispersion = 2f;
+        
         private Sequence _fadeAnimationSequence;
+        private bool _isScrolling;
 
-        public void SetUpFigure(Color color)
+        public FSignal<FigureAnimalsMenu> OnBeginDragFigureSignal { get; } = new FSignal<FigureAnimalsMenu>();
+        public FSignal<PointerEventData> OnBeginDragSignal { get; } = new FSignal<PointerEventData>();
+        public FSignal<PointerEventData> OnDraggingSignal { get; } = new FSignal<PointerEventData>();
+        public FSignal<PointerEventData> OnEndDragSignal { get; } = new FSignal<PointerEventData>();
+        
+        public int SiblingPosition { get; private set; }
+
+        public void SetUpFigure(Color color, int siblingPosition)
         {
             _image.color = color;
+            SiblingPosition = siblingPosition;
         }
 
         public void SetScale(float scale)
@@ -39,6 +52,33 @@ namespace Figures.Animals
         private void OnDestroy()
         {
             _fadeAnimationSequence?.Kill();
+        }
+
+        public void OnDrag(PointerEventData eventData)
+        {
+            if (_isScrolling)
+            {
+                OnDraggingSignal.Dispatch(eventData);
+            }
+        }
+
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            if (!(eventData.delta.y < YDeltaDispersion) || !(eventData.delta.y > -1 * YDeltaDispersion))
+            {
+                OnBeginDragFigureSignal.Dispatch(this);
+                return;
+            }
+            
+            OnBeginDragSignal.Dispatch(eventData);
+            _isScrolling = true;
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            OnEndDragSignal.Dispatch(eventData);
+            
+            _isScrolling = false;
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using Figures;
 using Figures.Animals;
 using Handlers;
 using Installers;
@@ -6,6 +8,7 @@ using Plugins.FSignal;
 using Storage;
 using Storage.Levels.Params;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Zenject;
 
@@ -33,10 +36,16 @@ namespace Level.Hud
 
         public void SetupScrollMenu(List<LevelFigureParams> levelFiguresParams)
         {
-            levelFiguresParams.ForEach(SetFigure);
+            var index = 0;
+            levelFiguresParams.ForEach(figureParams =>
+            {
+                SetFigure(figureParams, index);
+                index++;
+            });
         }
+        
 
-        private void SetFigure(LevelFigureParams figureParams)
+        private void SetFigure(LevelFigureParams figureParams, int siblingIndex)
         {
             var figurePrefab = _figuresStorage.GetFiguresByType(figureParams.FigureType);
 
@@ -53,9 +62,33 @@ namespace Level.Hud
             
             var figure = Instantiate(figurePrefab.FigureMenu, _figuresParentTransform);
             figure.SetUpDefaultParamsFigure(figureParams.Color, figureParams.FigureType);
-            figure.SetUpFigure(figure.FigureColor);
+            figure.SetUpFigure(figure.FigureColor, siblingIndex);
+            
             _figureAnimalsMenuList.Add(figure);
+            
+            SetupDraggingSignalsHandlers(figure);
+        }
 
+        private void SetupDraggingSignalsHandlers(FigureAnimalsMenu figure)
+        {
+            figure.OnBeginDragSignal.AddListener(OnBeginDragSignalHandler);
+            figure.OnDraggingSignal.AddListener(OnDraggingSignalHandler);
+            figure.OnEndDragSignal.AddListener(OnEndDragSignalHandler);
+        }
+
+        private void OnBeginDragSignalHandler(PointerEventData eventData)
+        {
+            _scrollRect.SendMessage("OnBeginDrag", eventData);
+        }
+        
+        private void OnDraggingSignalHandler(PointerEventData eventData)
+        {
+            _scrollRect.SendMessage("OnDrag", eventData);
+        }
+        
+        private void OnEndDragSignalHandler(PointerEventData eventData)
+        {
+            _scrollRect.SendMessage("OnEndDrag", eventData);
         }
 
         private void GoToMainMenuScreen()
@@ -69,9 +102,33 @@ namespace Level.Hud
             _scrollRect.horizontal = !value;
         }
 
+        public FigureAnimalsMenu GetFigureByType(FigureType type)
+        {
+            return _figureAnimalsMenuList.FirstOrDefault(figure => figure.FigureType == type);
+        }
+
+        public void ReturnFigureBackToScroll(FigureType type)
+        {
+            var figure = GetFigureByType(type);
+            figure.transform.SetParent(_figuresParentTransform);
+            figure.transform.SetSiblingIndex(figure.SiblingPosition);
+        }
+
         private void OnDestroy()
         {
             _backButton.onClick.RemoveAllListeners();
+
+            UnsubscribeFromDraggingSignals();
+        }
+
+        private void UnsubscribeFromDraggingSignals()
+        {
+            _figureAnimalsMenuList.ForEach(figure =>
+            {
+                figure.OnBeginDragSignal.RemoveListener(OnBeginDragSignalHandler);
+                figure.OnDraggingSignal.RemoveListener(OnDraggingSignalHandler);
+                figure.OnEndDragSignal.RemoveListener(OnEndDragSignalHandler);
+            });
         }
     }
 }

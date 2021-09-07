@@ -986,6 +986,7 @@
             <e p="Hud" t="Include">
               <e p="ILevelHUDHandler.cs" t="Include" />
               <e p="LevelHUDHandler.cs" t="Include" />
+              <e p="LevelHUDScrollHandler.cs" t="Include" />
             </e>
           </e>
           <e p="Screen" t="Include">

@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Figures;
 using Figures.Animals;
 using Installers;
 using Level.Game;
@@ -13,7 +14,6 @@ namespace Handlers
 {
     public class LevelSessionHandler : InjectableMonoBehaviour, ILevelSessionHandler
     {
-        [Inject] private FiguresStorage _figuresStorage;
         [Inject] private ProgressHandler _progressHandler;
         [Inject] private ScreenHandler _screenHandler;
 
@@ -84,15 +84,18 @@ namespace Handlers
             _isDraggable = true;
             _menuFigure = figure;
             _levelHudHandler.LockScroll(true);
-            SetupDraggingFigure(figure);
+            
+            SetupDraggingFigure(figure.FigureType);
         }
 
-        private void SetupDraggingFigure(FigureAnimalsMenu figure)
+        private void SetupDraggingFigure(FigureType figureType)
         {
-            _draggingFigure = Instantiate(_figuresStorage.GetFiguresByType(figure.FigureType).FigureMenu, Input.mousePosition, Quaternion.identity, _draggingTransform);
-            _draggingFigure.SetUpDefaultParamsFigure(figure.FigureColor, figure.FigureType);
-            _draggingFigure.SetUpFigure(figure.FigureColor);
-            _draggingFigure.SetScale(1.5f);
+            _draggingFigure = _levelHudHandler.GetFigureByType(figureType);
+            _draggingFigure.transform.SetParent(_draggingTransform);
+            // _draggingFigure = Instantiate(_figuresStorage.GetFiguresByType(figure.FigureType).FigureMenu, Input.mousePosition, Quaternion.identity, _draggingTransform);
+            // _draggingFigure.SetUpDefaultParamsFigure(figure.FigureColor, figure.FigureType);
+            // _draggingFigure.SetUpFigure(figure.FigureColor);
+            // _draggingFigure.SetScale(1.5f);
         }
 
         private void EndElementDragging(FigureAnimalTarget releasedOnFigure)
@@ -131,14 +134,16 @@ namespace Handlers
         private void ResetDraggingFigure()
         {
             _resetDraggingAnimationSequence = DOTween.Sequence().Append(_draggingFigure.transform.DOMove(_menuFigure.transform.position, 0.4f))
-                .Insert(0.2f, _draggingFigure.transform.DOScale(0, 0.2f))
-                .AppendCallback(ClearDraggingFigure);
+                .AppendCallback(() =>
+                {
+                    _levelHudHandler.ReturnFigureBackToScroll(_draggingFigure.FigureType);
+                });
         }
 
         private void ClearDraggingFigure()
         {
             _levelHudHandler.LockScroll(false);
-            Destroy(_draggingFigure.gameObject);
+            //Destroy(_draggingFigure.gameObject);
             _draggingFigure = null;
         }
 
