@@ -24,6 +24,7 @@ namespace Figures.Animals
         public FSignal<PointerEventData> OnEndDragSignal { get; } = new FSignal<PointerEventData>();
         
         public int SiblingPosition { get; private set; }
+        public Vector3 InitialPosition { get; set; }
 
         public void SetUpFigure(Color color, int siblingPosition)
         {
@@ -47,6 +48,11 @@ namespace Figures.Animals
         {
             FadeFigure();
             SetFigureCompleted(true);
+        }
+
+        public void Destroy()
+        {
+            Destroy(gameObject);
         }
 
         private void OnDestroy()

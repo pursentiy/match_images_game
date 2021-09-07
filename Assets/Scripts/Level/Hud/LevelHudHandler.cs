@@ -20,6 +20,7 @@ namespace Level.Hud
         [Inject] private ScreenHandler _screenHandler;
 
         [SerializeField] private RectTransform _figuresParentTransform;
+        [SerializeField] private Canvas _scrollCanvas;
         [SerializeField] private ScrollRect _scrollRect;
         [SerializeField] private Button _backButton;
         
@@ -42,6 +43,7 @@ namespace Level.Hud
                 SetFigure(figureParams, index);
                 index++;
             });
+            SetInitialFiguresPositions();
         }
         
 
@@ -63,10 +65,17 @@ namespace Level.Hud
             var figure = Instantiate(figurePrefab.FigureMenu, _figuresParentTransform);
             figure.SetUpDefaultParamsFigure(figureParams.Color, figureParams.FigureType);
             figure.SetUpFigure(figure.FigureColor, siblingIndex);
-            
             _figureAnimalsMenuList.Add(figure);
             
             SetupDraggingSignalsHandlers(figure);
+        }
+
+        private void SetInitialFiguresPositions()
+        {
+            _figureAnimalsMenuList.ForEach(figure =>
+            {
+                figure.InitialPosition = figure.transform.position;
+            });
         }
 
         private void SetupDraggingSignalsHandlers(FigureAnimalsMenu figure)
@@ -107,11 +116,21 @@ namespace Level.Hud
             return _figureAnimalsMenuList.FirstOrDefault(figure => figure.FigureType == type);
         }
 
+        public List<FSignal<FigureAnimalsMenu>> GetOnBeginDragFiguresSignal()
+        {
+            return _figureAnimalsMenuList.Select(figure => figure.OnBeginDragFigureSignal).ToList();
+        }
+
+        public List<FSignal<PointerEventData>> GetOnDragEndFiguresSignal()
+        {
+            return _figureAnimalsMenuList.Select(figure => figure.OnEndDragSignal).ToList();
+        }
+
         public void ReturnFigureBackToScroll(FigureType type)
         {
             var figure = GetFigureByType(type);
             figure.transform.SetParent(_figuresParentTransform);
-            figure.transform.SetSiblingIndex(figure.SiblingPosition);
+            //figure.transform.SetSiblingIndex(figure.SiblingPosition);
         }
 
         private void OnDestroy()

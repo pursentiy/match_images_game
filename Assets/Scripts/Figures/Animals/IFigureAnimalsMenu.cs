@@ -13,6 +13,8 @@ namespace Figures.Animals
         FSignal<PointerEventData> OnEndDragSignal { get; }
         FSignal<PointerEventData> OnDraggingSignal { get; }
         FSignal<FigureAnimalsMenu> OnBeginDragFigureSignal { get; }
+        Vector3 InitialPosition { get; set; }
         void SetConnected();
+        void Destroy();
     }
 }

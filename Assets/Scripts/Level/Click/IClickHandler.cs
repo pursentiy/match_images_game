@@ -1,11 +1,11 @@
 ﻿using Figures.Animals;
 using Plugins.FSignal;
+using UnityEngine.EventSystems;
 
-namespace Level.Hud.Click
+namespace Level.Click
 {
     public interface IClickHandler
     {
-        FSignal<FigureAnimalsMenu> StartGrabbingPositionSignal { get; }
-        FSignal<FigureAnimalTarget> ReleaseGrabbingPositionSignal { get; }
+        FigureAnimalTarget TryGetFigureAnimalTargetOnDragEnd(PointerEventData eventData);
     }
 }

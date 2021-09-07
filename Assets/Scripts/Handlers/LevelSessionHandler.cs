@@ -2,12 +2,12 @@
 using Figures;
 using Figures.Animals;
 using Installers;
+using Level.Click;
 using Level.Game;
 using Level.Hud;
-using Level.Hud.Click;
-using Storage;
 using Storage.Levels.Params;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Zenject;
 
 namespace Handlers
@@ -50,14 +50,11 @@ namespace Handlers
             }
             
             _screenHandler.ShowLevelCompleteScreen(_currentLevel, _levelVisualHandler.TextureCamera, OnDestroyLevel);
-            
         }
 
         private void SetupClickHandler()
         {
             _clickHandler.enabled = true;
-            _clickHandler.StartGrabbingPositionSignal.AddListener(StartElementDragging);
-            _clickHandler.ReleaseGrabbingPositionSignal.AddListener(EndElementDragging);
         }
 
         private void SetupFigures(LevelParams levelParam, Color defaultColor)
@@ -72,11 +69,13 @@ namespace Handlers
             _levelHudHandler.SetupScrollMenu(levelParam.LevelFiguresParamsList);
             
             _levelHudHandler.BackToMenuClickSignal.AddListener(OnDestroyLevel);
+            _levelHudHandler.GetOnBeginDragFiguresSignal().ForEach(signal => { signal.AddListener(StartElementDragging); });
+            _levelHudHandler.GetOnDragEndFiguresSignal().ForEach(signal => { signal.AddListener(EndElementDragging); });
         }
 
         private void StartElementDragging(FigureAnimalsMenu figure)
         {
-            if (figure == null || figure.IsCompleted)
+            if (_isDraggable || figure == null || figure.IsCompleted)
             {
                 return;
             }
@@ -92,16 +91,12 @@ namespace Handlers
         {
             _draggingFigure = _levelHudHandler.GetFigureByType(figureType);
             _draggingFigure.transform.SetParent(_draggingTransform);
-            // _draggingFigure = Instantiate(_figuresStorage.GetFiguresByType(figure.FigureType).FigureMenu, Input.mousePosition, Quaternion.identity, _draggingTransform);
-            // _draggingFigure.SetUpDefaultParamsFigure(figure.FigureColor, figure.FigureType);
-            // _draggingFigure.SetUpFigure(figure.FigureColor);
-            // _draggingFigure.SetScale(1.5f);
         }
 
-        private void EndElementDragging(FigureAnimalTarget releasedOnFigure)
+        private void EndElementDragging(PointerEventData eventData)
         {
-            _isDraggable = false;
-        
+            var releasedOnFigure = _clickHandler.TryGetFigureAnimalTargetOnDragEnd(eventData);
+
             if (_draggingFigure == null)
             {
                 return;
@@ -118,10 +113,9 @@ namespace Handlers
                 _progressHandler.UpdateProgress(_currentLevel, releasedOnFigure.FigureType);
                 _completeDraggingAnimationSequence = DOTween.Sequence().Append(_draggingFigure.transform.DOScale(0, 0.4f)).AppendCallback(() =>
                 {
-                    ClearDraggingFigure();
+                    ClearDraggingFigure(true);
                     releasedOnFigure.SetConnected();
                     _menuFigure.SetConnected();
-
                     TryHandleLevelCompletion();
                 });
             }
@@ -133,17 +127,24 @@ namespace Handlers
 
         private void ResetDraggingFigure()
         {
-            _resetDraggingAnimationSequence = DOTween.Sequence().Append(_draggingFigure.transform.DOMove(_menuFigure.transform.position, 0.4f))
-                .AppendCallback(() =>
+            _resetDraggingAnimationSequence = DOTween.Sequence().Append(_draggingFigure.transform.DOMove(_menuFigure.InitialPosition, 0.4f))
+                .OnComplete(() =>
                 {
                     _levelHudHandler.ReturnFigureBackToScroll(_draggingFigure.FigureType);
+                    ClearDraggingFigure(false);
                 });
         }
 
-        private void ClearDraggingFigure()
+        private void ClearDraggingFigure(bool removeCompletely)
         {
+            _isDraggable = false;
             _levelHudHandler.LockScroll(false);
-            //Destroy(_draggingFigure.gameObject);
+            
+            if (removeCompletely)
+            {
+                _draggingFigure.Destroy();
+            }
+            
             _draggingFigure = null;
         }
 
@@ -164,11 +165,12 @@ namespace Handlers
 
         private void OnDestroyLevel()
         {
+            _levelHudHandler.GetOnBeginDragFiguresSignal().ForEach(signal => { signal.RemoveListener(StartElementDragging); });
+            _levelHudHandler.GetOnDragEndFiguresSignal().ForEach(signal => { signal.RemoveListener(EndElementDragging); });
+            
             ResetAnimationSequences();
             DestroyHandlers();
-            
-            _clickHandler.StartGrabbingPositionSignal.RemoveListener(StartElementDragging);
-            _clickHandler.ReleaseGrabbingPositionSignal.RemoveListener(EndElementDragging);
+
             _clickHandler.enabled = false;
         }
 
