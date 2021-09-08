@@ -240,8 +240,8 @@ MonoBehaviour:
     type: 3}
   _gamePrefab: {fileID: 1137274561476345310, guid: 09ac6f31ae2314b48911cd3e6d72c58b,
     type: 3}
-  _gameObjectsNumber: 10
-  _canvasObjectsNumber: 10
+  _gameObjectsNumber: 20
+  _canvasObjectsNumber: 20
 --- !u!4 &285964075
 Transform:
   m_ObjectHideFlags: 0

@@ -10,9 +10,6 @@ namespace Pooling
         [SerializeField] private PoolObject _canvasPrefab;
         [SerializeField] private PoolObject _gamePrefab;
 
-        [SerializeField] private int _gameObjectsNumber;
-        [SerializeField] private int _canvasObjectsNumber;
-
         private Dictionary<PoolType, Queue<PoolObject>> _poolDictionary;
 
         private void Awake()
@@ -24,8 +21,8 @@ namespace Pooling
         {
             _poolDictionary = new Dictionary<PoolType, Queue<PoolObject>>();
 
-            InstantiateObjects(_gameObjectsNumber, PoolType.Game, _gamePrefab);
-            InstantiateObjects(_canvasObjectsNumber, PoolType.Canvas, _canvasPrefab);
+            InstantiateObjects(20, PoolType.Game, _gamePrefab);
+            InstantiateObjects(20, PoolType.Canvas, _canvasPrefab);
         }
 
         private void InstantiateObjects(int numberOfObjects, PoolType type, PoolObject prefab)
@@ -72,8 +69,19 @@ namespace Pooling
             }
         }
 
+        private void OnDestroy()
+        {
+            _canvasFieldTransform = null;
+            _poolObjectsParentTransform = null;
+        }
+
         public void ResetPoolObjectParent(PoolObject poolObject, PoolType poolType)
         {
+            if (_canvasFieldTransform == null || _poolObjectsParentTransform == null)
+            {
+                return;
+            }
+            
             switch (poolType)
             {
                 case PoolType.Canvas when !(_canvasFieldTransform == null):

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Handlers;
 using UnityEngine;
 using UnityEngine.UI;
@@ -78,7 +79,6 @@ namespace Screen
         private void TryInvokeFinishLevelSessionAction()
         {
             _onFinishLevelSessionAction?.Invoke();
-
             _onFinishLevelSessionAction = null;
         }
     }
