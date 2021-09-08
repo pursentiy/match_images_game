@@ -1,6 +1,4 @@
-﻿using System;
-using System.Net.Sockets;
-using DG.Tweening;
+﻿using DG.Tweening;
 using Plugins.FSignal;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -26,9 +24,23 @@ namespace Figures.Animals
         public int SiblingPosition { get; set; }
         public Vector3 InitialPosition { get; set; }
 
-        public void SetUpFigure(Color color)
+        public void SetUpFigure(Sprite sprite, Color color)
         {
+            _image = GetComponent<Image>();
+            if (_image == null)
+            {
+                Debug.LogWarning($"No {nameof(Image)} Component found on object with type {FigureType}");
+                return;
+            }
+
+            _image.sprite = sprite;
             _image.color = color;
+            
+            _transform = GetComponent<RectTransform>();
+            if (_transform == null)
+            {
+                Debug.LogWarning($"No {nameof(RectTransform)} Component found on object with type {FigureType}");
+            }
         }
 
         public void SetScale(float scale)

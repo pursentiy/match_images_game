@@ -6,7 +6,7 @@ namespace Figures.Animals
 {
     public interface IFigureAnimalsMenu
     {
-        void SetUpFigure(Color color);
+        void SetUpFigure(Sprite sprite, Color color);
         int SiblingPosition { get; set;}
         Vector3 InitialPosition { get; set; }
         void SetScale(float scale);

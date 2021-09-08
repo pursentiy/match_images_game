@@ -1,10 +1,12 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using Figures;
 using Figures.Animals;
 using Installers;
 using Level.Click;
 using Level.Game;
 using Level.Hud;
+using Pooling;
 using Storage.Levels.Params;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -137,14 +139,14 @@ namespace Handlers
                 });
         }
 
-        private void ClearDraggingFigure(bool removeCompletely)
+        private void ClearDraggingFigure(bool removeFigure)
         {
             _isDraggable = false;
             _levelHudHandler.LockScroll(false);
             
-            if (removeCompletely)
+            if (removeFigure)
             {
-                _draggingFigure.Destroy();
+                _draggingFigure.PoolObject.ResetObject();
             }
             
             _draggingFigure = null;

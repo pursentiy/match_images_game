@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Figures;
 using Figures.Animals;
 using Handlers;
 using Installers;
 using Plugins.FSignal;
+using Pooling;
 using Storage;
 using Storage.Levels.Params;
 using UnityEngine;
@@ -18,9 +20,9 @@ namespace Level.Hud
     {
         [Inject] private FiguresStorage _figuresStorage;
         [Inject] private ScreenHandler _screenHandler;
+        [Inject] private ObjectsPoolHandler _objectsPoolHandler;
 
         [SerializeField] private RectTransform _figuresParentTransform;
-        [SerializeField] private Canvas _scrollCanvas;
         [SerializeField] private ScrollRect _scrollRect;
         [SerializeField] private Button _backButton;
         
@@ -37,19 +39,15 @@ namespace Level.Hud
 
         public void SetupScrollMenu(List<LevelFigureParams> levelFiguresParams)
         {
-            var index = 0;
-            levelFiguresParams.ForEach(figureParams =>
-            {
-                SetFigure(figureParams, index);
-                index++;
-            });
+            levelFiguresParams.ForEach(SetFigure);
         }
 
-        private void SetFigure(LevelFigureParams figureParams, int siblingIndex)
+        private void SetFigure(LevelFigureParams figureParams)
         {
-            var figurePrefab = _figuresStorage.GetFiguresByType(figureParams.FigureType);
+            //var figurePrefab = _figuresStorage.GetSpriteByType(figureParams.FigureType);
+            var figureObj = _objectsPoolHandler.GetPoolPrefab(PoolType.Canvas);
 
-            if (figurePrefab == null)
+            if (figureObj == null)
             {
                 Debug.LogWarning($"Could not find figure with type {figureParams.FigureType} in {this}");
                 return;
@@ -59,10 +57,15 @@ namespace Level.Hud
             {
                 return;
             }
+
+            figureObj.AddComponent<Image>();
+            var figure = figureObj.AddComponent<FigureAnimalsMenu>();
+            //var figure = Instantiate(figurePrefab.FigureMenu, _figuresParentTransform);
             
-            var figure = Instantiate(figurePrefab.FigureMenu, _figuresParentTransform);
+            figure.transform.SetParent(_figuresParentTransform);
             figure.SetUpDefaultParamsFigure(figureParams.Color, figureParams.FigureType);
-            figure.SetUpFigure(figure.FigureColor);
+            figure.SetUpFigure(_figuresStorage.GetSpriteByType(figureParams.FigureType), figure.FigureColor);
+            figure.GetPoolObjectComponent();
             _figureAnimalsMenuList.Add(figure);
             
             SetupDraggingSignalsHandlers(figure);
@@ -128,6 +131,8 @@ namespace Level.Hud
             _backButton.onClick.RemoveAllListeners();
 
             UnsubscribeFromDraggingSignals();
+            
+            _figureAnimalsMenuList.ForEach(figure => { figure.PoolObject.ResetObject(); });
         }
 
         private void UnsubscribeFromDraggingSignals()

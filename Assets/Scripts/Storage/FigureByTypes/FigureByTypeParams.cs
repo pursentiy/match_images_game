@@ -1,6 +1,7 @@
 ﻿using System;
 using Figures;
 using Figures.Animals;
+using UnityEngine;
 
 namespace Storage.FigureByTypes
 {
@@ -8,13 +9,13 @@ namespace Storage.FigureByTypes
     public class FigureByTypeParams
     {
         public FigureType FigureType;
-        public FiguresByType FiguresByType;
+        public Sprite Sprite;
     }
 
-    [Serializable]
-    public class FiguresByType
-    {
-        public FigureAnimalTarget FigureAnimal;
-        public FigureAnimalsMenu FigureMenu;
-    }
+    // [Serializable]
+    // public class FiguresByType
+    // {
+    //     public FigureAnimalTarget FigureAnimal;
+    //     public FigureAnimalsMenu FigureMenu;
+    // }
 }

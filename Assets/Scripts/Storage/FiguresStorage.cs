@@ -11,9 +11,9 @@ namespace Storage
     {
         [SerializeField] private List<FigureByTypeParams> _figuresByTypeList;
 
-        public FiguresByType GetFiguresByType(FigureType figureType)
+        public Sprite GetSpriteByType(FigureType figureType)
         {
-            return _figuresByTypeList.FirstOrDefault(figuresParams => figuresParams.FigureType == figureType)?.FiguresByType;
+            return _figuresByTypeList.FirstOrDefault(figuresParams => figuresParams.FigureType == figureType)?.Sprite;
         }
     }
 }
