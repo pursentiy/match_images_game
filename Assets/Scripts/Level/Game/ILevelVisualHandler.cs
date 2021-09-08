@@ -9,6 +9,6 @@ namespace Level.Game
     {
         void SetupLevel(List<LevelFigureParams> levelFiguresParams, Color defaultColor);
         Camera TextureCamera { get; }
-        
+        void ResetPoolObjects();
     }
 }

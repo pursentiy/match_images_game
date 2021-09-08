@@ -14,5 +14,6 @@ namespace Level.Hud
         FigureAnimalsMenu GetFigureByType(FigureType type);
         List<FSignal<FigureAnimalsMenu>> GetOnBeginDragFiguresSignal();
         List<FSignal<PointerEventData>> GetOnDragEndFiguresSignal();
+        void ResetPoolObjects();
     }
 }

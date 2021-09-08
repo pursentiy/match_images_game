@@ -13,12 +13,12 @@ namespace Level.Hud
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            //Debug.Log($"Dragging Started in {this}");
+            
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-           // Debug.Log($"Dragging Ended in {this}");
+           
         }
     }
 }

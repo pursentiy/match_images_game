@@ -44,7 +44,6 @@ namespace Level.Hud
 
         private void SetFigure(LevelFigureParams figureParams)
         {
-            //var figurePrefab = _figuresStorage.GetSpriteByType(figureParams.FigureType);
             var figureObj = _objectsPoolHandler.GetPoolPrefab(PoolType.Canvas);
 
             if (figureObj == null)
@@ -60,11 +59,11 @@ namespace Level.Hud
 
             figureObj.AddComponent<Image>();
             var figure = figureObj.AddComponent<FigureAnimalsMenu>();
-            //var figure = Instantiate(figurePrefab.FigureMenu, _figuresParentTransform);
-            
+
             figure.transform.SetParent(_figuresParentTransform);
             figure.SetUpDefaultParamsFigure(figureParams.Color, figureParams.FigureType);
             figure.SetUpFigure(_figuresStorage.GetSpriteByType(figureParams.FigureType), figure.FigureColor);
+            figure.SetScale(1);
             figure.GetPoolObjectComponent();
             _figureAnimalsMenuList.Add(figure);
             
@@ -125,14 +124,19 @@ namespace Level.Hud
             figure.transform.SetParent(_figuresParentTransform);
             figure.transform.SetSiblingIndex(figure.SiblingPosition);
         }
+        
+        public void ResetPoolObjects()
+        {
+            _figureAnimalsMenuList.ForEach(figure => { figure.PoolObject.ResetObject(); });
+        }
 
         private void OnDestroy()
         {
+            ResetPoolObjects();
+            
             _backButton.onClick.RemoveAllListeners();
 
             UnsubscribeFromDraggingSignals();
-            
-            _figureAnimalsMenuList.ForEach(figure => { figure.PoolObject.ResetObject(); });
         }
 
         private void UnsubscribeFromDraggingSignals()

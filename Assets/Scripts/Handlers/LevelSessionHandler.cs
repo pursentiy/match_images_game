@@ -6,7 +6,6 @@ using Installers;
 using Level.Click;
 using Level.Game;
 using Level.Hud;
-using Pooling;
 using Storage.Levels.Params;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -51,7 +50,7 @@ namespace Handlers
                 return;
             }
             
-            _screenHandler.ShowLevelCompleteScreen(_currentLevel, _levelVisualHandler.TextureCamera, OnDestroyLevel);
+            _screenHandler.ShowLevelCompleteScreen(_currentLevel, _levelVisualHandler.TextureCamera, ResetLevel);
         }
 
         private void SetupClickHandler()
@@ -70,7 +69,7 @@ namespace Handlers
             _levelHudHandler = ContainerHolder.CurrentContainer.InstantiatePrefabForComponent<LevelHudHandler>(levelHudHandler, _gameMainCanvasTransform);
             _levelHudHandler.SetupScrollMenu(levelParam.LevelFiguresParamsList);
             
-            _levelHudHandler.BackToMenuClickSignal.AddListener(OnDestroyLevel);
+            _levelHudHandler.BackToMenuClickSignal.AddListener(ResetLevel);
             _levelHudHandler.GetOnBeginDragFiguresSignal().ForEach(signal => { signal.AddListener(StartElementDragging); });
             _levelHudHandler.GetOnDragEndFiguresSignal().ForEach(signal => { signal.AddListener(EndElementDragging); });
         }
@@ -167,22 +166,28 @@ namespace Handlers
             _draggingFigure.transform.position = Input.mousePosition;
         }
 
-        private void OnDestroyLevel()
+        private void ResetLevel()
         {
-            _levelHudHandler.GetOnBeginDragFiguresSignal().ForEach(signal => { signal.RemoveListener(StartElementDragging); });
-            _levelHudHandler.GetOnDragEndFiguresSignal().ForEach(signal => { signal.RemoveListener(EndElementDragging); });
-            
+            if (_levelHudHandler != null)
+            {
+                _levelHudHandler.GetOnBeginDragFiguresSignal().ForEach(signal => { signal.RemoveListener(StartElementDragging); });
+                _levelHudHandler.GetOnDragEndFiguresSignal().ForEach(signal => { signal.RemoveListener(EndElementDragging); });
+            }
+
             ResetAnimationSequences();
             DestroyHandlers();
 
-            _clickHandler.enabled = false;
+            if (_clickHandler != null)
+            {
+                _clickHandler.enabled = false;
+            }
         }
 
         private void DestroyHandlers()
         {
             if (_levelHudHandler != null)
             {
-                _levelHudHandler.BackToMenuClickSignal.RemoveListener(OnDestroyLevel);
+                _levelHudHandler.BackToMenuClickSignal.RemoveListener(ResetLevel);
                 Destroy(_levelHudHandler.gameObject);
                 _levelHudHandler = null;
             }

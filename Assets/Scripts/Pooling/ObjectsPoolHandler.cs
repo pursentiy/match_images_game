@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Pooling
 {
-    public class ObjectsPoolHandler : MonoBehaviour
+    public class ObjectsPoolHandler : MonoBehaviour, IObjectsPoolHandler
     {
         [SerializeField] private Transform _poolObjectsParentTransform;
         [SerializeField] private RectTransform _canvasFieldTransform;
@@ -56,7 +56,7 @@ namespace Pooling
             return obj.gameObject;
         }
 
-        public void TryRemoveOldComponents(PoolType poolType, GameObject poolObj)
+        public void TryRemoveOldComponents(GameObject poolObj)
         {
             var componentList = poolObj.GetComponents(typeof(Component));
 

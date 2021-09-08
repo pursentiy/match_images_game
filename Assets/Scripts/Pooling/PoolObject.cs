@@ -1,5 +1,4 @@
 ﻿using Installers;
-using UnityEngine;
 using Zenject;
 
 namespace Pooling
@@ -8,7 +7,7 @@ namespace Pooling
     {
         [Inject] private ObjectsPoolHandler _objectsPoolHandler;
         
-        public PoolType _poolType;
+        private PoolType _poolType;
 
         public void Initialize(PoolType poolType)
         {
@@ -17,8 +16,8 @@ namespace Pooling
 
         public void ResetObject()
         {
-            _objectsPoolHandler.TryRemoveOldComponents(_poolType, gameObject);
             _objectsPoolHandler.ResetPoolObjectParent(this, _poolType);
+            _objectsPoolHandler.TryRemoveOldComponents(gameObject);
             gameObject.SetActive(false);
         }
     }

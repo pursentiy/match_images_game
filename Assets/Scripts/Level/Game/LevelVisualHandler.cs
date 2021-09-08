@@ -36,7 +36,6 @@ namespace Level.Game
 
         private void SetFigure(LevelFigureParams figureParams, Color defaultColor)
         {
-            //var figurePrefab = ;
             var figureObj = _objectsPoolHandler.GetPoolPrefab(PoolType.Game);
 
             if (figureObj == null)
@@ -49,7 +48,6 @@ namespace Level.Game
             var figure = figureObj.AddComponent<FigureAnimalTarget>();
             
             figure.transform.SetParent(_figuresParentTransform);
-            //var figure = Instantiate(figurePrefab.FigureAnimal, _figuresParentTransform);
             figure.SetUpFigure(_figuresStorage.GetSpriteByType(figureParams.FigureType), figureParams.Completed ? figureParams.Color : defaultColor, figureParams.Scale, figureParams.Position);
             figure.SetUpDefaultParamsFigure(figureParams.Color, figureParams.FigureType);
             figure.GetPoolObjectComponent();
@@ -57,6 +55,11 @@ namespace Level.Game
         }
 
         private void OnDestroy()
+        {
+            ResetPoolObjects();
+        }
+
+        public void ResetPoolObjects()
         {
             _figureAnimalsTargetList.ForEach(figure => { figure.PoolObject.ResetObject(); });
         }
